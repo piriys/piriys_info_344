@@ -1,0 +1,86 @@
+﻿[class*='m2icon-']
+{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 65%;
+}
+       
+.m2icon-home
+{
+    background-image: url('../img/m2micons/home.png');  
+}
+
+.m2icon-brush
+{
+    background-image: url('../img/m2micons/brush.png');  
+}
+
+.m2icon-monitor
+{
+    background-image: url('../img/m2micons/monitor.png');  
+}
+
+.m2icon-logon
+{
+    background-image: url('../img/m2micons/logon.png');  
+}
+
+.m2icon-logoff
+{
+    background-image: url('../img/m2micons/logoff.png');  
+}
+
+.m2icon-register
+{
+    background-image: url('../img/m2micons/register.png');  
+}
+
+.m2icon-settings
+{
+    background-image: url('../img/m2micons/settings.png');  
+}
+
+.m2icon-refresh
+{
+    background-image: url('../img/m2micons/refresh.png');  
+}
+
+.m2icon-cancel
+{
+    background-image: url('../img/m2micons/cancel.png');  
+}
+
+.m2icon-delete
+{
+    background-image: url('../img/m2micons/delete.png');  
+}
+
+.m2icon-share
+{
+    background-image: url('../img/m2micons/share.png');  
+}
+
+.m2icon-play
+{
+    background-image: url('../img/m2micons/play.png');  
+}
+
+.m2icon-admin
+{
+    background-image: url('../img/m2micons/admin.png');  
+}
+
+.m2icon-group
+{
+    background-image: url('../img/m2micons/group.png');  
+}
+
+.m2icon-newfile
+{
+    background-image: url('../img/m2micons/newfile.png');  
+}
+
+.m2icon-newlist
+{
+    background-image: url('../img/m2micons/newlist.png');  
+}

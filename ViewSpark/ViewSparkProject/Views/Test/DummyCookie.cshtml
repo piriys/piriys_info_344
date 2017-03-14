@@ -1,0 +1,32 @@
+﻿@model ViewSparkProject.User
+           
+@{
+    ViewBag.Title = "DummyCookie";
+    Layout = "~/Views/Shared/_Simple.cshtml";
+}
+
+<h2>DummyCookie</h2>
+
+@using (Html.BeginForm("DummyCookie", "Test", FormMethod.Post) ) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Cookie Data</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ID, "Username")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ID)
+        </div>
+
+
+        <p>
+            <input type="submit" value="DummyCookie" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

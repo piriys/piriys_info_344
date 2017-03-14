@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ViewSparkProject.User>
+
+@{
+    Layout = "~/Views/Shared/_FullScreen.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Users</h2>
+
+<p>
+    @Html.VSLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            Authorizer
+        </th>
+        <th>
+            AuthorizationID
+        </th>
+        <th>
+            RegistrationDate
+        </th>
+        <th>
+            LastLoginDate
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Authorizer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorizationID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastLoginDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.VSLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.VSLink("Details", "Details", new { id = item.ID }) |
+            @Html.VSLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

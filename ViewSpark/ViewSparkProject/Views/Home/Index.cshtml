@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+@if (Request.IsAuthenticated)
+{
+    <div id="homeWelcomeLoader" class="twelvecolx ninerowy lasty color-darkgray-a85 content loader">
+ 	    <h1 class="text-magenta">Welcome Back!</h1>
+	    <hr class="border-magenta"/>
+    </div>
+}
+else
+{
+    <div id="homeWelcome_Loader" class="eightcolx tenrowy lasty color-darkgray-a85 content loader">
+ 	    <h1 class="text-magenta">What is ViewSpark?</h1>
+	    <hr class="border-magenta"/>
+        <h3>
+            ViewSpark is an accessible, versatile web presentation service that allows users to give better,
+            more interactive presentations.
+        </h3>
+        <h2 class="text-magenta">Features</h2>
+        <hr class="border-magenta"/>
+        <ul>
+            <li><h3>Create and store their presentations online</h3></li>
+            <li><h3>Share text and images with viewers</h3></li>
+            <li><h3>Re-organize slides mid-presentation</h3></li>
+            <li><h3>Give polls & quizzes using interactive web forms</h3></li>
+            <li><h3>Browse and download previously viewed presentations</h3></li>
+        </ul>
+        <h2 class="text-magenta">
+            Spark your Success
+        </h2>
+        <hr class="border-magenta" />
+        <h3>
+            So what are you waiting for? Our team built this application with the needs 
+            of young professionals such as yourselves in mind, so do us the favor
+            of @Html.ActionLink("signing up", "Register") and enjoying everything ViewSpark has to offer!
+        </h3>
+    </div>    
+    
+    <div id="logOnForm_Loader" class="fourcolx threerowy lastx color-darkgray-a85 content loader">
+ 	    <h1 class="text-magenta">Log On</h1>
+	    <hr class="border-magenta"/>  
+        
+        @Html.Action("_LogOnForm")      
+    </div>
+    
+    <div id="registrationForm_Loader" class="fourcolx sevenrowy lastx lasty color-darkgray-a85 content loader">
+	    <h1 class="text-magenta">Register</h1>
+	    <hr class="border-magenta"/>
+
+        @Html.Action("_RegistrationForm")
+    </div>    
+}

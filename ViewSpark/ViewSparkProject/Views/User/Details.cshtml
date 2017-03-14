@@ -1,0 +1,46 @@
+﻿@model ViewSparkProject.User
+
+@{
+    Layout = "~/Views/Shared/_FullScreen.cshtml";
+    ViewBag.Title = "Details";
+}
+
+<h2>User Details</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">Username</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Username)
+    </div>
+
+    <div class="display-label">Authorizer</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Authorizer)
+    </div>
+
+    <div class="display-label">AuthorizationID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AuthorizationID)
+    </div>
+
+    <div class="display-label">RegistrationDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegistrationDate)
+    </div>
+
+    <div class="display-label">LastLoginDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastLoginDate)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+</fieldset>
+<p>
+    @Html.VSLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.VSLink("Back to List", "Index")
+</p>

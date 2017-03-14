@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html class="color-black">
+<head>
+    <meta charset="utf-8" />
+    <title>ViewSpark | @ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/css/stylereset.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/bootstrap.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/css/viewSparkFont.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/viewSparkGrid.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/viewSparkButton.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/metro2color.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/metro2state.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/metro2icon.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/ViewSpark.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>  
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/js/viewSparkScript.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/spin.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/js/spin-jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/js/utils.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+		<header class="fullcolx onerowy lasty text-yellow">
+			<div id="headerbar" class="fullcolx fullrowy">
+				<div id="viewsparklogo" class="fourcolx fullrowy">
+					<div id="viewsparkicon" class="onecolx fullrowy color-magenta">
+					</div>
+					<h2>Thundercats Softworks</h2>
+					<h1>ViewSpark</h1>
+				</div>
+
+			    <div id="logOnState_Loader" class="fullrowy">
+                    @Html.Action("_LogOnState", "Shared")
+			    </div>
+			</div>
+		</header>
+
+		<nav id="topnavbar" class="fullcolx halfrowy color-magenta">
+			<a href="@Url.Action("Index", "Home")">
+                <div class="onecolx fullrowy button-nav">
+				    <div class="name">
+					    <p>START</p>
+				    </div>
+			    </div>		
+            </a>
+
+            @if (Request.IsAuthenticated)
+            {
+            <a href="@Url.Action("Index", "View")">
+			    <div class="onecolx fullrowy button-nav">
+				    <div class="name">
+					    <p>VIEW</p>
+				    </div>
+			    </div>
+            </a>
+            <a href="@Url.Action("Index", "Edit")">
+			    <div class="twocolx fullrowy button-nav">
+				    <div class="name">
+					    <p>CREATE/EDIT</p>
+				    </div>
+			    </div>
+            </a>
+            <a href="@Url.Action("Index", "Present")">
+			    <div class="twocolx fullrowy button-nav">
+				    <div class="name">
+					    <p>PRESENT</p>
+				    </div>
+			    </div>	
+            </a>
+            <a href="@Url.Action("Index", "Group")">
+			    <div class="twocolx fullrowy button-nav">
+				    <div class="name">
+					    <p>GROUPS</p>
+				    </div>
+			    </div>	
+            </a>
+            }
+            <a href="@Url.Action("About", "Home")">
+			    <div class="twocolx fullrowy button-nav">
+				    <div class="name">
+					    <p>ABOUT US</p>
+				    </div>
+			    </div>	
+            </a>            									
+		</nav>
+
+        <div class="twelvecolx container">
+            <section id="mainloader" class="fullcolx loader">
+                @RenderBody()
+            </section>
+
+            <footer id="copyright" class="fullcolx halfrowy text-yellow">
+                <p>
+                    ViewSpark &copy; Piriya Saengsuwarn, Ezra Park, John Robinson, Naveen Yadav
+                    <br />
+                    Metro<sup>2</sup>Mosaic &copy; Piriya Saengsuwarn
+                </p>   
+            </footer>
+        </div>
+    </div>
+    <div id="dark-overlay" class="color-darkgray-a85 state-inactive">
+        <div class="fullcolx fullrowy" onclick="closeDialog();"></div>
+        <div id="m2-dialog" class="fivecolx tworowy color-white">
+            <div id="dialog-content_Loader" class="fullcolx fullrowy content"></div>
+            <div class="content-bottom-nav-right">
+	            <div class="halfcolx button-content-bottom">
+                    <p class="text-magenta">Close</p>
+		            <div class="fullcolx halfrowy lasty color-magenta m2icon-cancel" onclick="closeDialog();"></div>
+	            </div>	 
+            </div>        
+        </div>
+    </div>
+</body>
+</html>

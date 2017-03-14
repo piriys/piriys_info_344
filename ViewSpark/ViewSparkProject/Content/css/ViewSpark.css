@@ -1,0 +1,28 @@
+﻿.modal
+{
+    color: #000;
+}
+
+.modal form
+{
+    margin: 0;
+}
+
+.modal h3
+{
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.modal .editor-label
+{
+    display: inline-block;
+    width: 200px;
+}
+
+
+.modal .editor-field
+{
+    display: inline-block;
+    width: 200px;
+}

@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+
+<link rel="stylesheet" href="/javascripts/aloha/css/aloha.css" type="text/css">
+<script src="/javascripts/aloha/lib/require.js"></script>
+<script src="/javascripts/aloha/lib/aloha.js"
+    data-aloha-plugins="common/ui,
+                        common/format,
+                        common/highlighteditables,
+                        common/link,
+                        common/list,
+                        common/image,
+                        common/undo,
+                        common/paste">
+</script>
+<script type="text/javascript">
+    var oldSlide = { ID: -1 };
+
+    function saveIfChanged(oldSlide, target) {
+        if (oldSlide.ID != -1) {
+            var curHtml = $(target).html();
+            if (oldSlide.HtmlContentString != curHtml) {
+                oldSlide.HtmlContentString = curHtml;
+
+                if (!oldSlide.Layout) { delete oldSlide.Layout; }
+
+                $.ajax({
+                    url: '/Slide/Update/' + oldSlide.ID,
+                    data: oldSlide,
+                    type: "POST",
+                    success: function (data, status, xhr) {
+                        console.log('save succeeded');
+                    },
+                    error: function (data, status, xhr) {
+                        alert('save failed: ' + status);
+                    }
+                });
+
+            }
+        }
+
+    }
+
+    Aloha.ready(function () {
+        $('.editable').aloha();
+
+        Aloha.bind('aloha-smart-content-changed', function () {
+            console.log('change');
+            saveIfChanged(oldSlide, '#slide-content-edit');
+        });
+
+    });
+
+    $(window).load(function () {
+
+        $(document).ready(function () {
+            console.log('ready!');
+        });
+
+
+
+        $("form").submit(function (ev) {
+            $('#HtmlContent').val(Aloha.editables[0].getContents());
+            return true;
+        });
+    });
+</script>
+
+
+<div class="twelvecolx ninerowy lastx lasty frame">
+    <div id="page-0" class="fullcolx fullrowy page @ViewBag.PageState_0">
+        <div class="twelvecolx ninerowy pagewrapper">
+            <div class="eightcolx fullrowy color-darkgray-a85 content loader">
+   	            <h1 class="text-magenta">Select A File to Start</h1>
+	            <hr class="border-magenta"/>
+                
+                <div id="fileBrowser-Presentations_Loader" class="loader">
+                       @Html.Action("_FileBrowser", "Shared", new { view = "Edit", filetype = "Presentations", page = 1, itemPerPage = 9 })   
+                </div>
+                <div id="fileBrowser-Slides_Loader" class="loader">
+                       @Html.Action("_FileBrowser", "Shared", new { view = "Edit", filetype = "Slides", page = 1, itemPerPage = 9 })   
+                </div>
+            </div>     
+        
+            <div id="createMenu_Loader" class="fourcolx fullrowy lastx color-darkgray-a85 content loader">
+   	            <h1 class="text-magenta">Create</h1>
+	            <hr class="border-magenta"/>
+				<div id="toolbox-Edit" class="onecolx container">
+					<div class="halfcolx button-tool">
+						<div class="fullcolx halfrowy color-yellow m2icon-newlist" onclick="loadCreatePresentationDialog();"></div>
+						<p class="text-yellow">New Presen<br />tation</p>
+					</div>
+					<div class="halfcolx lastx button-tool">
+						<div class="fullcolx halfrowy color-yellow m2icon-newfile"></div>
+						<p class="text-yellow">New Poll</p>
+					</div>
+				</div>	
+
+                <div id="queuedSlides_Loader" class="loader">
+                        @if (Model == null || Model.type != "presentation")
+                        {
+   	                        <h1 class="text-magenta">Queued Slides</h1>
+	                        <hr class="border-magenta"/> 
+                            <p>Please select a presentation from the File Browser.</p>  
+                        }
+                        else
+                        {
+                            try
+                            {
+                                @Html.Action("_QueuedSlides", "Shared", new { id = Model.id, page = 1, maxColumn = 3, maxRow = 3, view = "Edit" })
+                            }
+                            catch
+                            {
+   	                            <h1 class="text-magenta">Queued Slides</h1>
+	                            <hr class="border-magenta"/> 
+                                <p>Invalid ID. Please select another presentation or create a new one in the Edit Home page.</p>  
+                            }
+                        }
+                </div>
+            </div>
+        </div>                  
+    </div>
+
+    <div id="page-1" class="fullcolx fullrowy page @ViewBag.PageState_1">
+        <div class="twelvecolx ninerowy pagewrapper">
+              <div class="fullcolx fullrowy">
+                <div id="slide-Edit_Loader" class="twelvecolx ninerowy loader">
+                    <div class="fullcolx fullrowy color-white content slide">
+                            <div class="slide-title fullcolx">
+                                <h1 id="slide-title-edit" class="text-magenta">Slide Editor</h1>
+                                <hr class="border-magenta"/> 
+                            </div>
+                            <div id="slide-content-edit" class="slide-content fullcolx">
+                                <p>Please select a slide from the File Browser or Queued Slides.</p>
+                            </div>
+
+	                        <div class="content-overlay-left overlay-slide">
+		                        <span class="textoverlay-main text-magenta">Slide </span>
+		                        <span class="textoverlay-sub text-magenta">Preview</span>
+	                        </div>	
+                    </div>	
+                </div>
+            </div>      
+        </div>         
+    </div>
+
+    <div id="page-2" class="fullcolx fullrowy page @ViewBag.PageState_2">
+       <div class="twelvecolx ninerowy pagewrapper">  
+             <div class="eightcolx fullrowy">      
+                 <div id="poll-Edit_Loader" class="eightcolx sixrowy color-darkgray-a85 content loader">
+                    @if (Model == null || Model.type != "poll")
+                    {
+   	                    <h1 class="text-magenta">Poll Editor</h1>
+	                    <hr class="border-magenta"/>
+                        <p>Please select a poll from the File Browser.</p>     
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                        }
+                        catch
+                        {
+   	                            <h1 class="text-magenta">Poll Editor</h1>
+	                            <hr class="border-magenta"/> 
+                                <p>Invalid ID. Please select another poll or create a new one in the Edit Home page.</p>  
+                        }
+                    } 
+                </div>
+
+                <div id="pollSelection_Loader" class="fullcolx threerowy lasty color-darkgray-a85 content loader">
+   	                <h1 class="text-magenta">Poll Selection</h1>
+	                <hr class="border-magenta"/>    
+                </div>  
+            </div>
+
+            <div class="fourcolx fullrowy lastx">
+                <div id="toolbox-Poll_Loader" class="fullcolx fullrowy color-darkgray-a85 content loader">
+   	                <h1 class="text-magenta">Toolbox</h1>
+	                <hr class="border-magenta"/>    
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <div class="content-bottom-nav-right">
+ 	    <div class="halfcolx button-content-bottom" onclick="jumpToPage(0);">
+            <p class="text-magenta">Edit Home</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-home"></div>
+	    </div>
+	    <div class="halfcolx button-content-bottom" onclick="jumpToPage(1);">
+            <p class="text-magenta">Slide Editor</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-brush"></div>
+	    </div>	
+	    <div class="halfcolx button-content-bottom" onclick="jumpToPage(2);">
+            <p class="text-magenta">Poll Editor</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-brush"></div>
+	    </div>	   
+    </div>
+</div>
+
+

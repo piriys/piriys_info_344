@@ -1,0 +1,897 @@
+.halfcolx, .onecolx, .twocolx, .threecolx, .fourcolx, .fivecolx, .sixcolx, .sevencolx, .eightcolx, .ninecolx, .elevencolx, .fullcolx  {
+	margin-right: 10px;
+	position: relative;
+	float: left;
+	
+	-webkit-transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	-ms-transition: all 0.5s ease-in;	
+	transition: all 0.5s ease-in;	
+}
+    .iconcolx 
+    {
+        width: 17.5px;
+        float: left;
+	    border: 1px solid transparent;   
+	    
+   	    -webkit-transition: all 0.5s ease-in;
+	    -moz-transition: all 0.5s ease-in;
+	    -o-transition: all 0.5s ease-in;
+	    -ms-transition: all 0.5s ease-in;	
+	    transition: all 0.5s ease-in;	     
+    }
+    
+    .fullcolx {
+		width: 100%;
+		margin-right: 0;		
+	}
+	
+	.halfcolx {
+		width: 45px;
+	}
+	
+	.onecolx {
+		width: 100px;
+	}
+	    .twocolx .onecolx:nth-child(2n), .threecolx .onecolx:nth-child(3n), .sevencolx .onecolx:nth-child(7n)
+	    {
+	        margin-right: 0;
+	    }
+	
+	.twocolx, .twocolx > .fullcolx {
+		width: 210px;
+	}
+		.twocolx.content, .twocolx > .fullcolx.content, .twocolx > .fullcolx.content > .fullcolx {
+			width: 190px;
+		}
+	
+	.threecolx, .threecolx > .fullcolx {
+		width: 320px;
+	}
+		.threecolx.content, .threecolx > .fullcolx.content, .threecolx > .fullcolx.content > .fullcolx {
+		    width: 300px;
+	    }
+	
+	.fourcolx, .fourcolx > .fullcolx {
+		width: 430px;
+	}
+		.fourcolx.content, .fourcolx > .fullcolx.content, .fourcolx > .fullcolx.content > .fullcolx, .fourcolx > .fullcolx > .fullcolx.content {
+			width: 410px;
+		}
+		
+	.fivecolx, .fivecolx > .fullcolx {
+		width: 540px;
+	}	
+	    .fivecolx.content, .fivecolx > .fullcolx.content, .fivecolx > .fullcolx.content > .fullcolx, .fivecolx > .fullcolx > .fullcolx.content 
+	    {
+	        width: 520px;
+	    }
+	
+	.sixcolx, .sixcolx > .fullcolx {
+		width: 650px;
+	}
+		.sixcolx.content, .sixcolx > .fullcolx.content, .sixcolx > .fullcolx.content > .fullcolx {
+			width: 630px;
+		}
+		
+	.sevencolx, sevencolx > .fullcolx {
+		width: 760px;
+	}
+		.sevencolx.content, .sevencolx > .fullcolx.content, .sevencolx > .fullcolx.content > .fullcolx {
+			width: 740px;
+		}
+			
+	.eightcolx, .eightcolx > .fullcolx {
+		width: 870px;
+	}		
+		.eightcolx.content, .eightcolx > .fullcolx.content, .eightcolx > .fullcolx.content > .fullcolx, .eightcolx > .fullcolx > .fullcolx.content  {
+			width: 850px;
+		}
+
+	.ninecolx, .ninecolx > .fullcolx {
+		width: 980px;
+	}
+	    .ninecolx.content, .ninecolx > .fullcolx.content, .ninecolx > .fullcolx.content > .fullcolx
+	    {
+	        width: 960px;
+	    }
+	
+	.tencolx, .tencolx > .fullcolx {
+		width: 1090px;
+	}
+	    .tencolx.content, .tencolx > .fullcolx.content, .tencolx > .fullcolx.content > .fullcolx
+	    {
+	        width: 1070px;
+	    }
+	
+	.elevencolx, .elevencolx > .fullcolx {
+		width: 1200px;
+	}
+		.elevencolx.content, .elevencolx > .fullcolx.content, .elevencolx > .fullcolx.content > .fullcolx {
+			width: 1180px;
+		}	
+		
+	.twelvecolx, .twelvecolx > .fullcolx, .twelvecolx > .fullcolx > .fullcolx.content  {
+		width: 1310px;
+	}
+		.twelvecolx.content, .twelvecolx > .fullcolx.content, .twelvecolx > .fullcolx.content > .fullcolx, .twelvecolx > .fullcolx > .fullcolx.content {
+			width: 1290px;
+		}	
+
+.halfrowy, .onerowy, .tworowy, .threerowy, .fourrowy, .fiverowy,  .sixrowy, .sevenrowy, .eightrowy, .ninerowy, .tenrowy, .fullrowy {
+	margin-bottom: 10px;
+	position: relative; 
+	float: left;	
+	
+	-webkit-transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	-ms-transition: all 0.5s ease-in;	
+	transition: all 0.5s ease-in;	
+}
+    .iconrowy 
+    {
+        height: 17.5px;
+        float: left;
+        
+	    -webkit-transition: all 0.5s ease-in;
+	    -moz-transition: all 0.5s ease-in;
+	    -o-transition: all 0.5s ease-in;
+	    -ms-transition: all 0.5s ease-in;	
+	    transition: all 0.5s ease-in;	        
+    }
+    
+	.fullrowy {
+		height: 100%;
+		margin-bottom: 0;
+	}
+	
+	.halfrowy {
+		height: 45px;
+	}
+	    .lineheight-halfrowy 
+	    {
+	        line-height: 45px;   
+	    }
+	    
+	.onerowy {
+		height: 100px;
+	}
+	
+	.tworowy, .tworowy > .fullrowy {
+		height: 210px;
+	}
+	    .tworowy.content, .tworowy > .fullrowy.content, .tworowy > .fullrowy.content > .fullrowy 
+	    {
+	        height: 190px;   
+	    }
+
+	.threerowy, .threerowy > .fullrowy {
+		height: 320px;
+	}
+		.threerowy.content, .threerowy > .fullrowy.content, .threerowy > .fullrowy.content > .fullrowy {
+			height: 300px;
+		}
+	
+	.fourrowy, .fourrowy > .fullrowy {
+		height: 430px;
+	}
+	    .fourrowy.content, .fourrowy > .fullrowy.content, .fourrowy > .fullrowy.content > .fullrowy
+	    {
+	        height: 410px;
+	    }
+		
+	.fiverowy, .fiverowy > .fullrowy {
+		height: 540px;
+	}
+	    .fiverowy.content, .fiverowy > .fullrowy.content, .fiverowy > .fullrowy.content > .fullrowy 
+	    {
+	        height: 520px;
+	    }
+	
+	.sixrowy, .sixrowy > .fullrowy  {
+		height: 650px;
+	}
+		.sixrowy.content, .sixrowy > .fullrowy.content, .sixrowy > .fullrowy.content > .fullrowy {
+			height: 630px;
+		}
+		
+	.sevenrowy, .sevenrowy > .fullrowy {
+		height: 760px;
+	}
+	    .sevenrowy.content, .sevenrowy > .fullrowy.content, .sevenrowy > .fullrowy.content > .fullrowy 
+	    {
+	        height: 740px;   
+	    }
+	
+	.eightrowy, .eightrowy > .fullrowy {
+		height: 870px;
+	}
+		.eightrowy.content, .eightrowy > .fullrowy.content, .eightrowy > .fullrowy.content > .fullrowy
+		{
+		    height: 850px;
+		}
+		
+	.ninerowy, .ninerowy > .fullrowy {
+		height: 980px;
+	}
+		.ninerowy.content, .ninerowy > .fullrowy.content, .ninerowy > .fullrowy > .fullrowy.content {
+			height: 960px;
+		}	
+		
+	.tenrowy, .tenrowy > .fullrowy {
+		height: 1090px;
+	}
+	    .tenrowy.content, .tenrowy > .fullrowy.content, .tenrowy > .fullrowy > .fullrowy.content 
+	    {
+	        height: 1070px;
+	    }
+
+    .elevenrowy, .elevenrowy > .fullrowy 
+    {
+        height: 1200px;
+    }
+        .elevenrowy.content, .elevenrowy > .fullrowy.content, .elevenrowy > .fullrowy > .fullrowy.content 
+        {
+            height: 1180px;
+        }
+        
+    .twelverowy, .twelverowy > .fullrowy 
+    {
+        height: 1310px;
+    }        
+        .twelverowy.content, .twelverowy > .fullrowy.content, .twelverowy > .fullrowy > .fullrowy.content 
+        {
+            height: 1290px;
+        }
+        
+		.halfrowy-min {
+			min-height: 45px;
+		}
+		.onerowy-min {
+			min-height: 100px;
+		}
+
+		.tworowy-min {
+			min-height: 210px;
+		}
+		
+		.threerowy-min {
+			min-height: 320px;
+		}
+		
+		.fourrowy-min {
+			min-height: 430px;
+		}
+
+		.fiverowy-min {
+			min-height: 540px;
+		}
+		
+		.sixrowy-min {
+			min-height: 650px;
+		}
+		
+		.sevenrowy-min {
+			min-height: 760px;
+		}
+		
+		.eightrowy-min {
+			min-height: 870px;
+		}
+			
+		.ninerowy-min {
+			min-height: 980px;
+		}
+		
+		.tenrowy-min {
+			min-height: 1090px;
+		}	
+	
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}	
+
+.content {
+	padding: 10px;
+}
+
+.lastx {
+	margin-right: 0;
+}
+
+.lasty {
+	margin-bottom: 0;
+}
+
+.page 
+{
+    overflow: hidden;
+	-webkit-transition: all 1.5s ease;
+	-moz-transition: all 1.5s ease;
+	-o-transition: all 1.5s ease;
+	-ms-transition: all 1.5s ease;	
+	transition: all 1.5s ease;	
+}
+
+.pagewrapper 
+{
+  
+}
+
+.frame 
+{
+    overflow: hidden;
+}
+
+.wrapper {
+
+}
+
+#dark-overlay 
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+	-webkit-transition: all 1.5s ease;
+	-moz-transition: all 1.5s ease;
+	-o-transition: all 1.5s ease;
+	-ms-transition: all 1.5s ease;	
+	transition: all 1.5s ease;	         
+}
+
+#m2-dialog
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -105px;
+    margin-left: -270px;
+    
+	-webkit-transition: all 1.5s ease;
+	-moz-transition: all 1.5s ease;
+	-o-transition: all 1.5s ease;
+	-ms-transition: all 1.5s ease;	
+	transition: all 1.5s ease;	     
+}
+/*Custom*/
+.field-validation-error
+{
+	-webkit-transition: all 1.5s ease-out;
+	-moz-transition: all 1.5s ease-out;
+	-o-transition: all 1.5s ease-out;
+	-ms-transition: all 1.5s ease-out;	
+	transition: all 1.5s ease-out;	    
+}
+html
+{
+	background: url("../img/logo-background.png") no-repeat center center fixed, 
+	url("../img/ignition-background.png") no-repeat center center fixed; 
+	background-color: #242424;
+	background-size: cover;
+}
+
+body
+{
+    background-color: transparent !important;
+    color: #fff;
+    
+}
+
+#viewsparklogo {
+	margin-left: 20px;
+}
+    
+#login {
+	float: right;
+	margin-right: 20px;
+	text-align: right;
+}
+
+header {
+	padding: 20px 0;
+}
+    header h1 
+    {
+        font-size: 3.0em;
+    }
+	header h2 {
+		font-size: 1.5em;
+	}
+	
+	header a {
+		font-size: 1.2em;
+		font-family: "Segoe Light", "Segoe UI", sans-serif;
+	}
+
+.item-slide {
+	
+}
+	.item-slide h2 {
+		font-size: 1.4em;
+	}
+	
+#tools {
+	
+}
+
+#slide-nav {
+
+}
+
+#layout-nav {
+
+}	
+
+.content-bottom-nav-right
+{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+    #dialog-content_Loader .content-bottom-nav-right
+    {
+        position: absolute;
+        right: 55px;
+        bottom: 10px;
+    }
+
+#topnavbar 
+{
+   overflow-y: hidden;
+}
+
+.actionmenu
+{
+    position: absolute;
+    right: 0;   
+    bottom: 0;
+    margin-right: 0;
+}
+    .actionmenu .menuname
+    {
+        float: right;
+        margin-right: 10px;
+    }    
+    .actionmenu p
+    {
+        line-height: 17.5px;
+        font-size: 0.8em;
+        padding: 0;
+        margin: 0;
+    }
+
+.content-bottom-nav-left
+{
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+}
+    .content-bottom-nav-left [class*='button-']
+    {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+    
+    #logOnState div
+    {
+        float: right;
+    }
+    
+    .button-logon p
+    {
+        float: right;
+        text-align: right;
+        padding-right: 10px;
+    }
+     
+    .button-file a, .button-queued-slide a
+    {
+        text-decoration: none;
+        text-align: center;
+        line-height: 98px;
+        display: block;
+        width: 98px;
+	    overflow: hidden;
+        text-overflow: ellipsis;        
+        -o-text-overflow: ellipsis;
+        white-space: nowrap;        
+    } 
+    
+    .file-details h3
+    {
+        display: block;
+	    overflow: hidden;
+        text-overflow: ellipsis;        
+        -o-text-overflow: ellipsis;
+        white-space: nowrap;          
+    }
+        li.wrapper_button-file
+        {
+            list-style-type: none;
+            margin-right: 2%;
+            width: 31%;
+        }  
+        
+        li.button-queued-slide
+        {
+            list-style-type: none;          
+        }
+        
+	.button-tool p, .button-filetype p, .button-content-bottom p {
+		text-align: center;
+	}
+	.button-content-bottom p 
+	{
+	    margin-bottom: 10px;
+	}
+	
+	.button-content-bottom  input 
+	{
+	    border: 0;
+	    width: 100%;
+	    height: 100%;
+	    opacity: 0.0;
+	}
+	
+	.button-layout p, .button-slidenav p, .button-connect p {
+		font-size: 1.2em;
+		text-align: center;
+	}
+	
+.content [class*='content-overlay'] {
+	position: absolute;
+	line-height: 100%;
+	bottom: 10px;
+	opacity: 0.2;
+}
+
+[class*='content-overlay'] {
+	position: absolute;
+	line-height: 100%;
+	bottom: 10px;
+	opacity: 0.2;
+}
+    .content-overlay-right 
+    {
+        right: 10px;
+    }
+
+    .content-overlay-left 
+    {
+        left: 10px;
+    }
+    
+	[class*='content-overlay'] .textoverlay-sub {
+		font-size: 6em;
+		letter-spacing: 0.1em;
+	}
+	
+	[class*='content-overlay'] .textoverlay-main {
+		font-size: 3em;
+	}
+	
+#copyright 
+{
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.filebrowser-nav 
+{
+    float: right;
+}
+
+.button-filebrowser-page
+{
+    margin-right: 0;
+    margin-left: 10px;
+    display: block;
+}
+
+.button-filebrowser-page a
+{
+    text-decoration: none;
+    text-align: center;
+    line-height: 45px;
+    display: block;
+    width: 100%;
+}
+
+/*Forms*/
+.field-validation-error 
+{
+    color: #f5b401;
+    
+	-webkit-transition: all 2.0s ease-out;
+	-moz-transition: all 2.0s ease-out;
+	-o-transition: all 2.0s ease-out;
+	-ms-transition: all 2.0s ease-out;	
+	transition: all 2.0s ease-out;	    
+}
+
+.field-validation-valid 
+{
+  
+}
+
+option 
+{
+    background-color: #c20150;
+    color: #efefef;
+}
+
+select 
+{
+    border: 2px solid #efefef;
+    background-color: #f5b401;
+    color: #efefef;   
+}
+.content h2 
+{
+    font-size: 2.5em;
+	line-height: 100%;
+}
+
+.content h3
+{
+    font-size: 1.5em;
+}
+
+input 
+{
+    background-color: transparent;  
+    border: 2px solid #efefef;
+    color: #efefef;
+}
+
+#button-submit
+{
+    border: 2px solid #efefef;  
+    color: #efefef;
+    font-weight: bold;
+    width: 96px;
+    
+    -webkit-transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	-ms-transition: all 0.5s ease-in;	
+	transition: all 0.5s ease-in;	
+}
+
+#button-submit:hover
+{
+    background-color: #f5b401;
+}
+
+#logOnState 
+{
+    float: right;
+}
+
+#logOnState_Loader 
+{
+    float: right;
+    margin-right: 20px;
+}
+
+#mainloader 
+{
+    margin-bottom: 10px;
+}
+
+.component h1
+{
+    width: 100%;
+    text-overflow: ellipsis;        
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;  
+}
+
+.component h2
+{
+    font-size: 1.5em;
+}
+   
+:not(h2.halfcolx)
+{
+    margin-bottom: 15px;
+}
+
+/* Home Page Styles */
+
+#homeWelcome_Loader ul, .slides ul 
+{
+    list-style-type:none;
+}
+
+#homeWelcome_Loader h3, .team-description
+{
+    color: #F5B401;
+    font-size:20pt;
+    margin-bottom:10px;
+}
+
+#homeWelcome_Loader a 
+{
+    color: #F5B401;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+#homeWelcome_Loader a:hover 
+{
+    text-decoration:underline;
+}
+
+.loader p
+{
+    text-align: center;
+}
+
+/* Slides */
+.slide 
+{
+    overflow: hidden;
+}
+.slide p
+{
+    text-align: left;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.slides ul 
+{
+    margin:10px 0 10px 0;
+}
+
+.slide-title
+{
+    text-align: center;
+}
+
+.slide-content
+{
+    min-height: 40%;   
+}
+
+/*x1 size*/
+#slide-Present_Loader .slide-title
+{
+    font-size: 1.5em;
+}
+#slide-Present_Loader .slide-content
+{
+    font-size: 1.0em;   
+}
+
+/*x2 size*/
+#slide-View_Loader .slide-title
+{
+    font-size: 3.0em;
+}
+#slide-View_Loader .slide-content
+{
+    font-size: 2.0em;
+}
+/*x3 size*/
+#slide-Edit_Loader .slide-title, #slide-Expanded_Loader .slide-title
+{
+    font-size: 4.5em;
+}
+#slide-Edit_Loader .slide-content, #slide-Expanded_Loader .slide-content
+{
+    font-size: 3.0em;
+}
+
+
+/* About Page Styles */
+#main-team-pic, .team-pic 
+{
+    overflow: hidden;   
+}
+
+#main-team-pic img
+{
+    width: 100%;
+    font-size: 1.5em;
+}
+
+
+.team-pic img 
+{
+    height: 100%;
+    font-size: 1.5em;
+}
+
+/* Group Page Styles */
+
+.group label 
+{
+    font-size:16px;
+}
+
+.group fieldset, .group-action-link
+{
+    padding-left:30px;
+}
+
+.group h3
+{
+    margin-bottom:15px;
+}
+
+.group .display-label 
+{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.group .display-field {
+    margin-bottom:5px;
+}
+
+.group, #groupLoader, #groupLoader a, .group-action-link a, .group label, .group .display-label, .slides a
+{
+    font-family: "Segoe Light", sans-serif;
+    color:#F5B401;
+}
+
+#groupLoader a, .group-action-link a, .slides a
+{
+    text-decoration:none;
+}
+
+#groupLoader a:hover, .group-action-link a:hover, .slides a:hover 
+{
+    text-decoration:underline;
+}
+
+#group-table 
+{
+    border: solid 1px #c20150;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 5px;
+    border: solid 1px #c20150;
+}
+
+table th {
+    padding: 6px 5px;
+    text-align: left;
+    background-color: #c20150;
+    border: solid 1px #c20150;
+}
+
+h1.halfrowy, h2.halfrowy, p.halfrowy, .halfrowy > span.fullrowy
+{
+    line-height: 45px;
+}
+
+/* Error Page */
+
+.error-page 
+{
+    font-family: "Segoe Light", sans-serif;
+}
+
+.error-page h1
+{
+    font-size:100px;
+    margin:50px 0 20px 75px;
+}
+
+.error-page p 
+{
+    margin-left:80px;
+    font-size:20px;
+}

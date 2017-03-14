@@ -1,0 +1,12 @@
+.page.state-inactive 
+{
+    width: 0;
+	opacity: 0.0;
+	border: 0 solid transparent;
+}
+
+#dark-overlay.state-inactive
+{
+    visibility: collapse;
+    opacity: 0.0;   
+}

@@ -1,0 +1,56 @@
+﻿@model ViewSparkProject.Models.LogOnModel
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@*Redirect script for complete log on*@
+<script type="text/javascript">
+    function checkForValidLogOn(data) {
+        if (data.redirect && data.url) {
+            location.href = data.url;
+        }
+    }
+</script>
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    HttpMethod = "POST",
+    Url = Url.Action("_LogOnForm", "Home"),
+    OnSuccess = "checkForValidLogOn(data)",
+    UpdateTargetId = "logOnForm",
+    InsertionMode = InsertionMode.Replace
+}))
+{
+    <div id="logOnForm" class="twocolx component container">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username)
+        </div>
+        <div class="fullcolx feditor-field">
+            @Html.TextBoxFor(model => model.Username)
+        </div>
+        <div>
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="fullcolx editor-field">
+            @Html.PasswordFor(model => model.Password)
+        </div>    
+        <div>
+            @Html.ValidationMessageFor(model => model.Password)
+             <span class="field-validation-error">@ViewBag.PasswordState</span>
+        </div>
+
+        <div class="editor-label">
+            @Html.CheckBoxFor(model => model.RememberMe)
+            @Html.LabelFor(model => model.RememberMe) 
+        </div>
+
+        <p>
+            <input id="button-submit" type="submit" value="Log On" />
+        </p>
+    </div>
+}

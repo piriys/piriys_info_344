@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Present";
+}
+
+<div class="twelvecolx ninerowy lastx lasty frame">
+    <div id="page-0" class="fullcolx fullrowy page @ViewBag.PageState_0">
+        <div class="twelvecolx ninerowy pagewrapper">
+             <div id="startPresent_Loader" class="fullcolx fullrowy color-darkgray-a85 content loader">
+   	            <h1 class="text-magenta">Select A Presentation to Start</h1>
+	            <hr class="border-magenta"/>
+
+                <div id="fileBrowser-Presentations_Loader" class="loader">
+                    @Html.Action("_FileBrowser", "Shared", new {view = "Present", filetype = "Presentations", page = 1, itemPerPage = 9})   
+                </div>
+            </div>         
+        </div>
+    </div> 
+ 
+     <div id="page-1" class="fullcolx fullrowy page @ViewBag.PageState_1">
+        <div class="twelvecolx ninerowy pagewrapper">
+             <div class="eightcolx fullrowy">
+                <div class="fullcolx fullrowy color-darkgray-a85 content">
+                    <div id="queuedSlides_Loader" class="loader">
+                        @if (Model == null)
+                        {
+   	                        <h1 class="text-magenta">Queued Slides</h1>
+	                        <hr class="border-magenta"/> 
+                            <p>Please select a presentation from the File Browser in the Present Home page.</p>  
+                        }
+                        else
+                        {
+                            @Html.Action("_QueuedSlides", "Shared",  new { id = Model.id, page = 1, maxColumn = 7, maxRow = 7, view = "Present" })
+                        }
+                    </div>  
+                </div>
+            </div>
+
+            <div class="fourcolx lastx">
+                <div id="slide-Present_Loader" class="fullcolx threerowy color-darkgray-a85 loader">
+                    <div class="fullcolx fullrowy content component">
+   	                    <h1 class="text-magenta">Slide</h1>
+	                    <hr class="border-magenta"/>
+                        <p>Please select a slide from the Queued Slides on the left.</p>   
+                    </div>
+                </div>
+                
+                <div id="fileInfo_Loader" class="fullcolx threerowy color-darkgray-a85 content loader">
+   	                <h1 class="text-magenta">File Information</h1>
+	                <hr class="border-magenta"/>    
+                </div> 
+                                  
+                <div id="poll-View_Loader" class="fullcolx threerowy color-darkgray-a85 content loader">
+   	                <h1 class="text-magenta">Poll</h1>
+	                <hr class="border-magenta"/>    
+
+					<div class="content-overlay-left overlay-votecount">
+						<span class="textoverlay-main text-magenta">Votes : </span>
+						<span class="textoverlay-sub text-magenta">@*Put number of votes here*@</span>					
+					</div>	  
+                </div>                             
+            </div>                
+        </div>
+    </div>
+
+     <div id="page-2" class="fullcolx fullrowy page @ViewBag.PageState_2">
+        <div class="twelvecolx ninerowy pagewrapper">
+            <div id="slide-Expanded_Loader" class="fullcolx fullrowy color-darkgray-a85 loader">
+                <div class="fullcolx fullrowy content component">
+   	                <h1 class="text-magenta">Slide Preview</h1>
+	                <hr class="border-magenta"/>
+                    <p>Please select a slide from the File Browser.</p>   
+                </div>                  
+            </div>
+        </div>
+    </div>
+
+    <div class="content-bottom-nav-right">
+ 	    <div id="pagenav-0" class="halfcolx button-content-bottom" onclick="jumpToPage(0);">
+            <p class="text-magenta">Present Home</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-home"></div>
+	    </div>
+ 	    <div id="pagenav-1" class="halfcolx button-content-bottom" onclick="jumpToPage(1);">
+            <p class="text-magenta">Normal View</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-monitor"></div>
+	    </div>      
+
+	    <div id="pagenav-2" class="halfcolx button-content-bottom" onclick="jumpToPage(2);">
+            <p class="text-magenta">Slide Only</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-monitor"></div>
+	    </div>		   
+    </div>    
+</div>  

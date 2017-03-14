@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "SlideList";
+    int slideCount = ViewBag.Presentation.PresentationSlides.Count;
+}
+
+<div id="queuedSlides" class="fullcolx fullrowy component">
+    @if (slideCount != 0)
+    {
+        <ul class="fullcolx">
+        @foreach (var item in ViewBag.Presentation.PresentationSlides)
+        {
+            <li class="onecolx onerowy button-queued-slide">
+                <div class="fullcolx fullrowy color-yellow">
+                    <span onclick="deleteSlide(@item.Slide.ID)" class="slide-delete-btn"><img src="@Url.Content("~/Content/img/close-button.png")" /></span>
+                    <a href="#" onclick="editSlide(@item.Slide.ID , '#slide-content-edit', slideLoaded)">@item.Slide.Title</a>
+                </div>
+            </li>
+        }
+        </ul>  
+    }
+    else
+    {
+        <p>This presentation contains no slide, please go to Create/Edit page to add slides into your presentation.</p>
+    }
+</div>
+

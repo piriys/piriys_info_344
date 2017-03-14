@@ -1,0 +1,204 @@
+[class*='button-'] [class*='color-'], [class*='button-'][class*='color-']
+{
+    border-width: 1px;
+    border-style: solid;  
+}
+
+[class*='button-'] [class*='color-'].onecolx, [class*='button-'][class*='color-'].onecolx
+{
+    width: 98px;
+}
+
+[class*='button-'] [class*='color-'].onerowy, [class*='button-'][class*='color-'].onerowy
+{
+    height: 98px;
+}
+
+[class*='button-'] [class*='color-'].halfcolx, [class*='button-'][class*='color-'].halfcolx
+{
+    width: 43px;
+}
+
+[class*='button-'] [class*='color-'].halfrowy, [class*='button-'][class*='color-'].halfrowy
+{
+    height: 43px;
+}
+
+[class*='button-'] .color-magenta, [class*='button-'].color-magenta  
+{
+    border-color: #c20150;
+}
+
+[class*='button-'] .color-yellow, [class*='button-'].color-yellow
+{
+    border-color: #f5b401;
+}
+
+[class*='button-'] [class*='color-']:hover, [class*='button-'][class*='color-']:hover {
+	background-color: rgba(55,55,55, 0.6);
+	border-color: #efefef;
+
+	/*
+    opacity: 0.5;
+	-webkit-transform: scale(1.4);
+	-moz-transform: scale(1.4);
+	-o-transform: scale(1.4);
+	-ms-transform: scale(1.4);
+	transform: scale(1.4);
+	*/
+}
+
+a [class*='button-'] .name {
+	font-weight: normal;
+}
+
+.button-nav {
+	position: relative;
+	/*background-color: #c20150;*/
+	margin-left: 20px;
+	color: #f5b401;
+}
+
+.button-nav:hover, .button-nav.state-active {
+	background-color: #f5b401;
+	color: #c20150;
+	opacity: 1.0;
+	
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);		
+}
+
+.button-nav .name {
+	position: absolute;
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.button-nav .name p {
+	font-size: 1.5em;
+	font-family: "Segoe Light", sans-serif;
+	letter-spacing: 0.2em;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#viewsparkicon {
+	background-image: url("../img/logo.png");
+	background-size: 100px 100px;
+}
+
+li[class*='button-'] 
+{
+    list-style: none;
+}
+
+
+button.settingsbutton
+{
+    float: right;
+    margin-right: 0px;
+    padding: 0;
+}
+
+.button-action 
+{
+    width: 15.5px;
+    height: 15.5px;
+    float: right;
+    overflow: hidden;
+}
+
+.button-action:hover 
+{
+    width: 43px;
+    color: #efefef;
+    background-image: none;
+}
+
+    .button-action p 
+    {
+        line-height: 15.5px;
+        font-size: 0.8em;
+        padding: 0;
+        margin: 0;
+        opacity: 0.0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .button-action a
+    {
+        text-decoration: none;
+        font-weight: normal;
+    }    
+    .button-action p:hover
+    {    
+        opacity: 1.0;
+    }
+
+
+button.settingsbutton > a
+{
+    text-decoration: none;
+    text-align: left;
+    padding: 0.1em 0.3em;
+}
+
+button.settingsbutton li
+{
+    text-align: left;
+    text-shadow: none;
+}
+
+button.settingsbutton li a
+{
+    text-decoration: none;
+}
+
+    
+    .button-file
+    {
+        height: 98px;
+        width: 98px;
+    }
+    
+    .button-queued-slide
+    {
+        width: 98px;
+        height: 98px;
+    }
+
+
+li.button-queued-slide span.slide-delete-btn 
+{
+    opacity: 0;
+    -webkit-transition: 0.25s all ease-in;
+    transition: 0.25s all ease-in;
+}
+
+li.button-queued-slide:hover span.slide-delete-btn 
+{
+    opacity: 1.0;
+    -webkit-transition: 0.25s all ease-in;
+    transition: 0.25s all ease-in;    
+}
+
+span.slide-delete-btn 
+{
+    float: right;
+    margin-top: -12px;
+    margin-right: -12px;
+}
+
+/* button links for bootstrap */
+a.btn 
+{
+    text-decoration: none;
+    font-weight: normal;
+}

@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "View";
+}
+
+<div class="twelvecolx ninerowy lastx lasty frame">
+    <div id="page-0" class="fullcolx fullrowy page">
+        <div class="twelvecolx ninerowy pagewrapper">
+             <div id="fileBrowser_Loader" class="eightcolx fullrowy color-darkgray-a85 content loader">
+   	            <h1 class="text-magenta">Now Showing</h1>
+	            <hr class="border-magenta"/>
+            </div>     
+        
+            <div id="recentBrowser_Loader" class="fourcolx fullrowy lastx color-darkgray-a85 content loader">
+   	            <h1 class="text-magenta">Recent</h1>
+	            <hr class="border-magenta"/>
+            </div>       
+        </div>
+    </div>    
+
+    <div id="page-1" class="fullcolx fullrowy page state-inactive">
+        <div class="twelvecolx ninerowy pagewrapper">
+             <div class="eightcolx">
+                <div id="slide-View_Loader" class="fullcolx sixrowy color-darkgray-a85 content loader">
+   	                <h1 class="text-magenta">Slide</h1>
+	                <hr class="border-magenta"/>   
+
+					<div class="content-overlay-right overlay-time">
+						<span class="textoverlay-main text-magenta">Time Elapsed : </span>
+						<span class="textoverlay-sub text-magenta">@*Put time elapsed here*@</span>					
+					</div>		                     
+                </div>
+
+                <div id="slideNavigation_Loader" class="fullcolx threerowy color-darkgray-a85 content loader">
+   	                <h1 class="text-magenta">Slide Navigation</h1>
+	                <hr class="border-magenta"/>    
+                </div>  
+            </div>
+
+            <div class="fourcolx lastx">
+                <div id="chat_Loader" class="fullcolx fiverowy color-darkgray-a85 content loader">
+   	                <h1 class="text-magenta">Chat</h1>
+	                <hr class="border-magenta"/>    
+
+					<div class="content-overlay-right overlay-viewercount">
+						<span class="textoverlay-main text-magenta">Viewers : </span>
+						<span class="textoverlay-sub text-magenta">@*Put number of viewers here*@</span>					
+					</div>	
+                </div>  
+                <div id="poll-View_Loader" class="fullcolx fourrowy color-darkgray-a85 content loader">
+   	                <h1 class="text-magenta">Poll</h1>
+	                <hr class="border-magenta"/>    
+
+					<div class="content-overlay-left overlay-votecount">
+						<span class="textoverlay-main text-magenta">Votes : </span>
+						<span class="textoverlay-sub text-magenta">@*Put number of votes here*@</span>					
+					</div>	  
+                </div>                             
+            </div>                
+        </div>
+    </div>
+
+    <div id="page-2" class="fullcolx fullrowy page state-inactive">
+        <div class="twelvecolx ninerowy pagewrapper">
+            <div id="slide-View-Expanded_Loader" class="fullcolx fullrowy color-darkgray-a85 content loader">
+    	        <h1 class="text-magenta">Slide</h1>
+	            <hr class="border-magenta"/>
+                
+				<div class="content-overlay-left overlay-time">
+					<span class="textoverlay-main text-magenta">Time Elapsed : </span>
+					<span class="textoverlay-sub text-magenta">@*Put time elapsed here*@</span>					
+				</div>	                         
+            </div>
+        </div>
+    </div>
+
+    <div class="content-bottom-nav-right">
+ 	    <div class="halfcolx button-content-bottom" onclick="jumpToPage(0);">
+            <p class="text-magenta">View Home</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-home"></div>
+	    </div>
+ 	    <div class="halfcolx button-content-bottom" onclick="jumpToPage(1);">
+            <p class="text-magenta">Normal View</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-monitor"></div>
+	    </div>
+	    <div class="halfcolx button-content-bottom" onclick="jumpToPage(2);">
+            <p class="text-magenta">Slide Only</p>
+		    <div class="fullcolx halfrowy lasty color-magenta m2icon-monitor"></div>
+	    </div>		   
+    </div>
+</div>

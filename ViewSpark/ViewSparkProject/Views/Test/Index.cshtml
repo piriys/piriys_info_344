@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Debug Page";
+    ViewBag.CookieData = Request.Cookies;
+    Layout = "~/Views/Shared/_Simple.cshtml";
+}
+
+
+<script>
+    /*
+    function ajaxContent(controller, method) {
+        $("#pagebody").load("/" + controller + "/" + method + "/");
+    }
+
+    $(window).load(function () {
+        $('ul.nav > li > a').click(function (ev) {
+            ajaxContent($(ev.srcElement).attr('id'), "Index");
+        });
+    });
+    */
+</script>
+
+<div class="container-fluid">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+        <a class="brand" href="#">ViewSpark Test</a>
+            <div class="container">
+                
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid" style="padding-top: 40px;">
+        <div class="span2">
+            <ul class="nav nav-list">
+                <li class="nav-header">Database Objects</li>
+                <li>@Html.VSLink("<i class=\"icon-user\"></i>Users</a>", "User", "Index")</li>
+                <li>@Html.VSLink("<i class=\"icon-globe\"></i>Groups</a>", "Group", "Index")</li>
+                <li>@Html.VSLink("<i class=\"icon-film\"></i>Presentations</a>", "Presentation", "Index")</li>
+                <li>@Html.VSLink("<i class=\"icon-file\"></i>Slides</a>", "Slide", "Index")</li>
+                <li>@Html.VSLink("<i class=\"icon-picture\"></i>Images</a>", "Image", "Index")</li>
+            </ul>
+        </div>
+        <div class="span10" id="pagebody">
+            <h2>@ViewBag.Title</h2>
+
+            @if (Request.IsAuthenticated)
+            {
+                <p>You are currently logged in as "@Context.User.Identity.Name" (@Html.ActionLink("Change","DummyCookie"), @Html.ActionLink("Logout","Logout"))</p>
+            }
+            else
+            {
+                <p>@Html.ActionLink("Set your login", "DummyCookie")</p>
+            }
+
+            <h3>Cookie Contents</h3>
+
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Domain</th>
+                    <th>Path</th>
+                    <th>Expires</th>
+                </tr>
+                @for (int i = 0; i < Request.Cookies.Count; i++)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@Request.Cookies.Get(i).Name</td>
+                        <td>@Request.Cookies.Get(i).Value</td>
+                        <td>@Request.Cookies.Get(i).Domain</td>
+                        <td>@Request.Cookies.Get(i).Path</td>
+                        <td>@Request.Cookies.Get(i).Expires</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

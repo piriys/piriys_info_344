@@ -1,0 +1,31 @@
+﻿@model ViewSparkProject.Slide
+
+@using (Ajax.BeginForm(new 
+AjaxOptions {
+    UpdateTargetId = "dialog-content_Loader"
+}))
+{   
+    <div id="dialog-form">
+        <h1 class="text-magenta">Create Slide</h1>
+        <hr class="border-magenta" />
+        @Html.ValidationSummary(true)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <input type="hidden" name="slideID" value="@ViewBag.slideID" />
+                        
+        <div class="content-bottom-nav-right">
+	        <div class="halfcolx button-content-bottom">
+                <p class="text-magenta">Confirm</p>
+		        <div class="fullcolx halfrowy lasty color-magenta m2icon-newfile"><input type="submit" class="fullcolx fullrowy" /></div>
+	        </div>	 
+        </div>   
+    </div>   
+}
+
+

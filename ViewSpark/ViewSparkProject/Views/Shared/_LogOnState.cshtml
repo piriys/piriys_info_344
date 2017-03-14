@@ -1,0 +1,34 @@
+﻿@if (Request.IsAuthenticated)
+{
+<div id="logOnState" class="threecolx lastx fullrowy">    
+    <a href="@Url.Action("Account", "Home")">
+        <div class="twocolx halfrowy button-logon">
+		    <div class="halfcolx fullrowy lastx color-magenta m2icon-settings"></div>
+		    <div><p class="text-magenta lineheight-halfrowy">Account Settings</p></div>
+	    </div>
+    </a>
+    <a href="@Url.Action("LogOff", "Home")">
+	    <div class="twocolx halfrowy lastx lasty button-logon">
+		    <div class="halfcolx fullrowy color-magenta m2icon-logoff"></div>
+            <div><p class="text-magenta lineheight-halfrowy">Log Off</p></div>
+	    </div>
+    </a>  
+    </div>
+}
+else
+{
+<div id="logOnState" class="twocolx lastx fullrowy">
+    <a href="@Url.Action("Register", "Home")">
+        <div class="halfrowy lastx button-logon">
+		    <div class="halfcolx fullrowy lastx color-magenta m2icon-register"></div>
+		    <div><p class="text-magenta lineheight-halfrowy">Register</p></div>
+	    </div>
+    </a>
+    <a href="@Url.Action("LogOn", "Home")">
+	    <div class="halfrowy lastx button-logon">
+		    <div class="halfcolx fullrowy lastx color-magenta m2icon-logon"></div>
+            <div><p class="text-magenta lineheight-halfrowy">Log On</p></div>
+	    </div>
+    </a>
+</div>
+}

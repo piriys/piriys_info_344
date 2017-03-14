@@ -1,0 +1,21 @@
+﻿@model ViewSparkProject.Slide
+
+@using (Ajax.BeginForm(new 
+AjaxOptions {
+    UpdateTargetId = "dialog-content_Loader"
+}))
+{   
+    <div id="dialog-form">
+        <h1 class="text-magenta">Confirm Presentation Deletion</h1>
+        <hr class="border-magenta" />    
+        <input type="hidden" name="presentationID" value="@ViewBag.presentationID" />
+        
+        <p>@ViewBag.ConfirmDelete</p>         
+        <div class="content-bottom-nav-right">
+	        <div class="halfcolx button-content-bottom">
+                <p class="text-magenta">Delete</p>
+		        <div class="fullcolx halfrowy lasty color-magenta m2icon-delete"><input type="submit" class="fullcolx fullrowy" /></div>
+	        </div>	 
+        </div>   
+    </div>   
+}

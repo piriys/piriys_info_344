@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ViewSparkProject.Image>
+
+
+@{
+    Layout = "~/Views/Shared/_FullScreen.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Images</h2>
+
+<p>
+    @Html.VSLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Url
+        </th>
+        <th>
+            CreationDate
+        </th>
+        <th>
+            CreatedByUser
+        </th>
+        <th>
+            ModificationDate
+        </th>
+        <th>
+            ModifiedByUser
+        </th>
+        <th>
+            MimeType
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            <img src="@Url.Action("Resize", new { id = item.ID, width=64, height=64 })" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedByUser.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModificationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedByUser.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MimeType)
+        </td>
+        <td>
+            @Html.VSLink("View", "View", new { id=item.ID }) | 
+            @Html.VSLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.VSLink("Details", "Details", new { id = item.ID }) |
+            @Html.VSLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+    
+}
+
+</table>
+

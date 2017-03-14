@@ -1,0 +1,23 @@
+﻿@{
+    string updateId = ViewBag.updateId;
+}
+
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = updateId }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>@ViewBag.Title</h3>
+    </div>
+    <div class="modal-body" id="@updateId">
+    
+            @Html.ValidationSummary(true)
+
+            @RenderBody()
+
+            <input type="hidden" name="div" value="@updateId" />
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>    
+}

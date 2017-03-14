@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ViewSparkModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ViewSparkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GroupMembers" EntityType="ViewSparkModel.GroupMember" />
+    <EntitySet Name="GroupPresentationShares" EntityType="ViewSparkModel.GroupPresentationShare" />
+    <EntitySet Name="Groups" EntityType="ViewSparkModel.Group" />
+    <EntitySet Name="Images" EntityType="ViewSparkModel.Image" />
+    <EntitySet Name="Presentations" EntityType="ViewSparkModel.Presentation" />
+    <EntitySet Name="PresentationSlides" EntityType="ViewSparkModel.PresentationSlide" />
+    <EntitySet Name="Slides" EntityType="ViewSparkModel.Slide" />
+    <EntitySet Name="UserPresentationShares" EntityType="ViewSparkModel.UserPresentationShare" />
+    <EntitySet Name="Users" EntityType="ViewSparkModel.User" />
+    <AssociationSet Name="FK_GroupMembers_0" Association="ViewSparkModel.FK_GroupMembers_0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="GroupMembers" EntitySet="GroupMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupMembers_1" Association="ViewSparkModel.FK_GroupMembers_1">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="GroupMembers" EntitySet="GroupMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupPresentationShares_0" Association="ViewSparkModel.FK_GroupPresentationShares_0">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="GroupPresentationShares" EntitySet="GroupPresentationShares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupPresentationShares_1" Association="ViewSparkModel.FK_GroupPresentationShares_1">
+      <End Role="Presentations" EntitySet="Presentations" />
+      <End Role="GroupPresentationShares" EntitySet="GroupPresentationShares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groups_0" Association="ViewSparkModel.FK_Groups_0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Images_0" Association="ViewSparkModel.FK_Images_0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Images" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Images_1" Association="ViewSparkModel.FK_Images_1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Images" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Presentations_0" Association="ViewSparkModel.FK_Presentations_0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Presentations" EntitySet="Presentations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Presentations_2" Association="ViewSparkModel.FK_Presentations_2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Presentations" EntitySet="Presentations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PresentationSlides_0" Association="ViewSparkModel.FK_PresentationSlides_0">
+      <End Role="Presentations" EntitySet="Presentations" />
+      <End Role="PresentationSlides" EntitySet="PresentationSlides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPresentationShares_1" Association="ViewSparkModel.FK_UserPresentationShares_1">
+      <End Role="Presentations" EntitySet="Presentations" />
+      <End Role="UserPresentationShares" EntitySet="UserPresentationShares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PresentationSlides_1" Association="ViewSparkModel.FK_PresentationSlides_1">
+      <End Role="Slides" EntitySet="Slides" />
+      <End Role="PresentationSlides" EntitySet="PresentationSlides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slides_0" Association="ViewSparkModel.FK_Slides_0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Slides" EntitySet="Slides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slides_1" Association="ViewSparkModel.FK_Slides_1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Slides" EntitySet="Slides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPresentationShares_0" Association="ViewSparkModel.FK_UserPresentationShares_0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPresentationShares" EntitySet="UserPresentationShares" />
+    </AssociationSet>
+    <EntitySet Name="SlideLayouts" EntityType="ViewSparkModel.SlideLayout" />
+    <AssociationSet Name="FK_Slides_Layout" Association="ViewSparkModel.FK_Slides_Layout">
+      <End Role="SlideLayout" EntitySet="SlideLayouts" />
+      <End Role="Slide" EntitySet="Slides" />
+    </AssociationSet>
+    <EntitySet Name="Polls" EntityType="ViewSparkModel.Poll" />
+    <AssociationSet Name="FK_Poll_Users" Association="ViewSparkModel.FK_Poll_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Poll1" EntitySet="Polls" />
+    </AssociationSet>
+    <EntitySet Name="Chats" EntityType="ViewSparkModel.Chat" />
+    <AssociationSet Name="FK_Chat_Presentation" Association="ViewSparkModel.FK_Chat_Presentation">
+      <End Role="Presentation" EntitySet="Presentations" />
+      <End Role="Chat" EntitySet="Chats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chat_Users" Association="ViewSparkModel.FK_Chat_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Chat" EntitySet="Chats" />
+    </AssociationSet>
+    <EntitySet Name="PollResults" EntityType="ViewSparkModel.PollResult" />
+    <AssociationSet Name="FK_PollResults_1" Association="ViewSparkModel.FK_PollResults_1">
+      <End Role="Poll" EntitySet="Polls" />
+      <End Role="PollResult" EntitySet="PollResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PollResults_0" Association="ViewSparkModel.FK_PollResults_0">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PollResult" EntitySet="PollResults" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="GroupMember">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="ViewSparkModel.FK_GroupMembers_0" FromRole="GroupMembers" ToRole="Users" />
+    <NavigationProperty Name="Group" Relationship="ViewSparkModel.FK_GroupMembers_1" FromRole="GroupMembers" ToRole="Groups" />
+  </EntityType>
+  <EntityType Name="GroupPresentationShare">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <Property Name="PresentationID" Type="Int32" Nullable="false" />
+    <Property Name="Permissions" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="ViewSparkModel.FK_GroupPresentationShares_0" FromRole="GroupPresentationShares" ToRole="Groups" />
+    <NavigationProperty Name="Presentation" Relationship="ViewSparkModel.FK_GroupPresentationShares_1" FromRole="GroupPresentationShares" ToRole="Presentations" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GroupMembers" Relationship="ViewSparkModel.FK_GroupMembers_1" FromRole="Groups" ToRole="GroupMembers" />
+    <NavigationProperty Name="GroupPresentationShares" Relationship="ViewSparkModel.FK_GroupPresentationShares_0" FromRole="Groups" ToRole="GroupPresentationShares" />
+    <NavigationProperty Name="CreatedByUser" Relationship="ViewSparkModel.FK_Groups_0" FromRole="Groups" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Url" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Data" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModificationDate" Type="DateTime" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="MimeType" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CreatedByUser" Relationship="ViewSparkModel.FK_Images_0" FromRole="Images" ToRole="Users" />
+    <NavigationProperty Name="ModifiedByUser" Relationship="ViewSparkModel.FK_Images_1" FromRole="Images" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Presentation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModificationDate" Type="DateTime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="PresentationDate" Type="DateTime" />
+    <NavigationProperty Name="GroupPresentationShares" Relationship="ViewSparkModel.FK_GroupPresentationShares_1" FromRole="Presentations" ToRole="GroupPresentationShares" />
+    <NavigationProperty Name="CreatedByUser" Relationship="ViewSparkModel.FK_Presentations_0" FromRole="Presentations" ToRole="Users" />
+    <NavigationProperty Name="ModifiedByUser" Relationship="ViewSparkModel.FK_Presentations_2" FromRole="Presentations" ToRole="Users" />
+    <NavigationProperty Name="PresentationSlides" Relationship="ViewSparkModel.FK_PresentationSlides_0" FromRole="Presentations" ToRole="PresentationSlides" />
+    <NavigationProperty Name="UserPresentationShares" Relationship="ViewSparkModel.FK_UserPresentationShares_1" FromRole="Presentations" ToRole="UserPresentationShares" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+    <NavigationProperty Name="Chats" Relationship="ViewSparkModel.FK_Chat_Presentation" FromRole="Presentation" ToRole="Chat" />
+  </EntityType>
+  <EntityType Name="PresentationSlide">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PresentationID" Type="Int32" Nullable="false" />
+    <Property Name="SlideID" Type="Int32" Nullable="false" />
+    <Property Name="OrderNum" Type="Int32" Nullable="false" />
+    <Property Name="PresentationDate" Type="DateTime" />
+    <NavigationProperty Name="Presentation" Relationship="ViewSparkModel.FK_PresentationSlides_0" FromRole="PresentationSlides" ToRole="Presentations" />
+    <NavigationProperty Name="Slide" Relationship="ViewSparkModel.FK_PresentationSlides_1" FromRole="PresentationSlides" ToRole="Slides" />
+  </EntityType>
+  <EntityType Name="Slide">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModificationDate" Type="DateTime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="true" />
+    <Property Name="PresentationDate" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="PresentationSlides" Relationship="ViewSparkModel.FK_PresentationSlides_1" FromRole="Slides" ToRole="PresentationSlides" />
+    <NavigationProperty Name="CreatedByUser" Relationship="ViewSparkModel.FK_Slides_0" FromRole="Slides" ToRole="Users" />
+    <NavigationProperty Name="ModifiedByUser" Relationship="ViewSparkModel.FK_Slides_1" FromRole="Slides" ToRole="Users" />
+    <Property Type="Int32" Name="Layout" Nullable="true" />
+    <NavigationProperty Name="SlideLayout" Relationship="ViewSparkModel.FK_Slides_Layout" FromRole="Slide" ToRole="SlideLayout" />
+  </EntityType>
+  <EntityType Name="UserPresentationShare">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="PresentationID" Type="Int32" Nullable="false" />
+    <Property Name="Permissions" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Presentation" Relationship="ViewSparkModel.FK_UserPresentationShares_1" FromRole="UserPresentationShares" ToRole="Presentations" />
+    <NavigationProperty Name="User" Relationship="ViewSparkModel.FK_UserPresentationShares_0" FromRole="UserPresentationShares" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+    <Property Name="Authorizer" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="AuthorizationID" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="RegistrationDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="DateTime" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="127" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="GroupMemberships" Relationship="ViewSparkModel.FK_GroupMembers_0" FromRole="Users" ToRole="GroupMembers" />
+    <NavigationProperty Name="CreatedGroups" Relationship="ViewSparkModel.FK_Groups_0" FromRole="Users" ToRole="Groups" />
+    <NavigationProperty Name="CreatedImages" Relationship="ViewSparkModel.FK_Images_0" FromRole="Users" ToRole="Images" />
+    <NavigationProperty Name="ModifiedImages" Relationship="ViewSparkModel.FK_Images_1" FromRole="Users" ToRole="Images" />
+    <NavigationProperty Name="CreatedPresentations" Relationship="ViewSparkModel.FK_Presentations_0" FromRole="Users" ToRole="Presentations" />
+    <NavigationProperty Name="ModifiedPresentations" Relationship="ViewSparkModel.FK_Presentations_2" FromRole="Users" ToRole="Presentations" />
+    <NavigationProperty Name="CreatedSlides" Relationship="ViewSparkModel.FK_Slides_0" FromRole="Users" ToRole="Slides" />
+    <NavigationProperty Name="ModifiedSlides" Relationship="ViewSparkModel.FK_Slides_1" FromRole="Users" ToRole="Slides" />
+    <NavigationProperty Name="UserPresentationShares" Relationship="ViewSparkModel.FK_UserPresentationShares_0" FromRole="Users" ToRole="UserPresentationShares" />
+    <NavigationProperty Name="Polls" Relationship="ViewSparkModel.FK_Poll_Users" FromRole="User" ToRole="Poll1" />
+    <NavigationProperty Name="Chats" Relationship="ViewSparkModel.FK_Chat_Users" FromRole="User" ToRole="Chat" />
+    <NavigationProperty Name="PollResults" Relationship="ViewSparkModel.FK_PollResults_0" FromRole="User" ToRole="PollResult" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Role" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Birthdate" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_GroupMembers_0">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="1" />
+    <End Role="GroupMembers" Type="ViewSparkModel.GroupMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GroupMembers">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupMembers_1">
+    <End Role="Groups" Type="ViewSparkModel.Group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GroupMembers" Type="ViewSparkModel.GroupMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GroupMembers">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupPresentationShares_0">
+    <End Role="Groups" Type="ViewSparkModel.Group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GroupPresentationShares" Type="ViewSparkModel.GroupPresentationShare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GroupPresentationShares">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupPresentationShares_1">
+    <End Role="Presentations" Type="ViewSparkModel.Presentation" Multiplicity="1" />
+    <End Role="GroupPresentationShares" Type="ViewSparkModel.GroupPresentationShare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presentations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GroupPresentationShares">
+        <PropertyRef Name="PresentationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groups_0">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Groups" Type="ViewSparkModel.Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Groups">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Images_0">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Images" Type="ViewSparkModel.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Images">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Images_1">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="0..1" />
+    <End Role="Images" Type="ViewSparkModel.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Images">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Presentations_0">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Presentations" Type="ViewSparkModel.Presentation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Presentations">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Presentations_2">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="0..1" />
+    <End Role="Presentations" Type="ViewSparkModel.Presentation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Presentations">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PresentationSlides_0">
+    <End Role="Presentations" Type="ViewSparkModel.Presentation" Multiplicity="1" />
+    <End Role="PresentationSlides" Type="ViewSparkModel.PresentationSlide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presentations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PresentationSlides">
+        <PropertyRef Name="PresentationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPresentationShares_1">
+    <End Role="Presentations" Type="ViewSparkModel.Presentation" Multiplicity="1" />
+    <End Role="UserPresentationShares" Type="ViewSparkModel.UserPresentationShare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presentations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPresentationShares">
+        <PropertyRef Name="PresentationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PresentationSlides_1">
+    <End Role="Slides" Type="ViewSparkModel.Slide" Multiplicity="1" />
+    <End Role="PresentationSlides" Type="ViewSparkModel.PresentationSlide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slides">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PresentationSlides">
+        <PropertyRef Name="SlideID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slides_0">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Slides" Type="ViewSparkModel.Slide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Slides">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slides_1">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="0..1" />
+    <End Role="Slides" Type="ViewSparkModel.Slide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Slides">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPresentationShares_0">
+    <End Role="Users" Type="ViewSparkModel.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPresentationShares" Type="ViewSparkModel.UserPresentationShare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPresentationShares">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SlideLayout">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Data" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Slides" Relationship="ViewSparkModel.FK_Slides_Layout" FromRole="SlideLayout" ToRole="Slide" />
+  </EntityType>
+  <Association Name="FK_Slides_Layout">
+    <End Type="ViewSparkModel.SlideLayout" Role="SlideLayout" Multiplicity="0..1" />
+    <End Type="ViewSparkModel.Slide" Role="Slide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SlideLayout">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Slide">
+        <PropertyRef Name="Layout" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Poll">
+    <Key>
+      <PropertyRef Name="PollID" />
+    </Key>
+    <Property Type="Int32" Name="PollID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Choice1" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Choice2" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Choice3" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Choice4" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Choice5" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="ViewSparkModel.FK_Poll_Users" FromRole="Poll1" ToRole="User" />
+    <NavigationProperty Name="PollResults_1" Relationship="ViewSparkModel.FK_PollResults_1" FromRole="Poll" ToRole="PollResult" />
+  </EntityType>
+  <Association Name="FK_Poll_Users">
+    <End Type="ViewSparkModel.User" Role="User" Multiplicity="1" />
+    <End Type="ViewSparkModel.Poll" Role="Poll1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Poll1">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Chat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PresentationID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="Text" Nullable="false" MaxLength="2048" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Timestamp" Nullable="false" />
+    <NavigationProperty Name="Presentation" Relationship="ViewSparkModel.FK_Chat_Presentation" FromRole="Chat" ToRole="Presentation" />
+    <NavigationProperty Name="User" Relationship="ViewSparkModel.FK_Chat_Users" FromRole="Chat" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Chat_Presentation">
+    <End Type="ViewSparkModel.Presentation" Role="Presentation" Multiplicity="1" />
+    <End Type="ViewSparkModel.Chat" Role="Chat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presentation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Chat">
+        <PropertyRef Name="PresentationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chat_Users">
+    <End Type="ViewSparkModel.User" Role="User" Multiplicity="1" />
+    <End Type="ViewSparkModel.Chat" Role="Chat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Chat">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PollResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="PollID" Nullable="false" />
+    <Property Type="Int32" Name="Choice" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <NavigationProperty Name="Poll" Relationship="ViewSparkModel.FK_PollResults_1" FromRole="PollResult" ToRole="Poll" />
+    <NavigationProperty Name="User" Relationship="ViewSparkModel.FK_PollResults_0" FromRole="PollResult" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_PollResults_1">
+    <End Type="ViewSparkModel.Poll" Role="Poll" Multiplicity="1" />
+    <End Type="ViewSparkModel.PollResult" Role="PollResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Poll">
+        <PropertyRef Name="PollID" />
+      </Principal>
+      <Dependent Role="PollResult">
+        <PropertyRef Name="PollID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PollResults_0">
+    <End Type="ViewSparkModel.User" Role="User" Multiplicity="1" />
+    <End Type="ViewSparkModel.PollResult" Role="PollResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PollResult">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

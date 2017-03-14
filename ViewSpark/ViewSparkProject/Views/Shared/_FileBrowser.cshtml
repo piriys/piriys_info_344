@@ -1,0 +1,148 @@
+﻿<div id="@Model.GetComponentId()" class="fullcolx fourrowy component">    
+    <div class="halfrowy">        
+ 	    <div class="halfrowy button-refresh">
+            @if (Model.FileType == "Slides")
+            {
+                <div class="halfcolx fullrowy color-yellow m2icon-refresh" onclick="refreshSlidesBrowser('@Model.View')"></div>
+            }
+            else if (Model.FileType == "Presentations")
+            {
+                <div class="halfcolx fullrowy color-yellow m2icon-refresh" onclick="refreshPresentations('@Model.View');"></div>
+            }
+	    </div>	
+        <h2 class="halfrowy lasty text-yellow">Saved @Model.FileType (@Model.CurrentPage/@Model.MaxPage())</h2>
+    </div>
+    <div class="fullcolx">
+        <ul>
+            @{
+                string linkText = "Slide";
+                string actionName = "";
+                string controllerName = "";
+                string updateTargetId = "";
+                object objParams = null;
+                AjaxOptions ajaxOptions = null;
+
+                if (Model.FileType == "Slides")
+                {
+                    actionName = "_Slide";
+                    controllerName = "Shared";
+
+                    if (Model.View == "Present")
+                    {
+                        updateTargetId = "slide-Present_Loader";
+                    }
+                    else if (Model.View == "Edit")
+                    {
+                        updateTargetId = "slide-title-edit";
+                    }
+                }
+                else if (Model.FileType == "Presentations")
+                {
+                    linkText = "Presentation";
+                    controllerName = "Shared";
+
+                    if (Model.View == "Present")
+                    {
+                        actionName = "_QueuedSlides";
+                        updateTargetId = "queuedSlides_Loader";
+                    }
+                    else if (Model.View == "Edit")
+                    {
+                        actionName = "_QueuedSlides";
+                        updateTargetId = "queuedSlides_Loader";
+                    }
+                }
+
+                ajaxOptions = new AjaxOptions { UpdateTargetId = updateTargetId };
+            }
+
+            @foreach (var item in @ViewBag.OwnedFiles)
+            {
+                <li class="onerowy wrapper_button-file">
+                    @if (Model.FileType == "Presentations")
+                    {
+                         <div class="onecolx color-yellow button-file" onclick="jumpToPage(@Model.subPageIndex());">
+                            @if (Model.View == "Present")
+                            {
+                                objParams = new { id = item.ID, page = 1, maxColumn = 7, maxRow = 7, view = Model.View };
+                            }
+                            else if (Model.View == "Edit")
+                            {
+                                objParams = new { id = item.ID, page = 1, maxColumn = 3, maxRow = 3, view = Model.View };
+                            }
+
+                            @Ajax.ActionLink(linkText, actionName, controllerName, objParams, ajaxOptions)
+                        </div>
+                    }
+                    else if (Model.FileType == "Slides")
+                    {
+                         <div class="onecolx color-yellow button-file" onclick="jumpToPage(@Model.subPageIndex()); editSlide(@item.ID , '#slide-content-edit', slideLoaded);  loadIntoSlideOnlyView('@Model.View', @item.ID);">
+                            @{
+                        objParams = new { view = Model.View, id = item.ID };
+                            }
+
+
+                            @Ajax.ActionLink(linkText, actionName, controllerName, objParams, ajaxOptions)
+                        </div>
+                    }
+
+                    <div class="file-details">
+                        <h3>@item.Title</h3>
+                        <div>
+                            Last Modified: <br />
+                            @item.ModificationDate
+                        </div>
+                        <div>ID: @item.ID</div>
+                        @if (Model.View == "Edit")
+                        {
+                            if (Model.FileType == "Presentations")
+                            {
+                            <div class="twocolx actionmenu">
+                                <div class="iconcolx iconrowy color-magenta m2icon-delete button-action" onclick="loadDeletePresentationDialog(@item.ID, '@Model.View');"><p><a href="#">Delete</a></p></div>
+                                <div class="iconcolx iconrowy color-magenta m2icon-play button-action"><p>@Html.ActionLink("Present", "Index", "Present", new { id = item.ID }, null)</p></div>
+                                <div class="iconcolx iconrowy color-magenta m2icon-share button-action"><p>Share</p></div>
+                                <div class="iconcolx iconrowy color-magenta m2icon-brush button-action">                         
+                                    @Ajax.ActionLink("Edit"
+                                        , "_QueuedSlides"
+                                        , "Shared"
+                                        , new { id = item.ID, page = 1, maxColumn = 3, maxRow = 3, view = Model.View }
+                                        , new AjaxOptions() { UpdateTargetId = "queuedSlides_Loader" })
+                                </div>
+                            </div>
+                            }
+                            else if (Model.FileType == "Slides")
+                            {
+                            <div class="twocolx actionmenu">
+                                <div class="iconcolx iconrowy color-magenta m2icon-delete button-action" onclick="loadDeleteSlideDialog(@item.ID, '@Model.View');"><p><a href="#">Delete</a></p></div>
+                                <div class="iconcolx iconrowy color-magenta m2icon-share button-action"><p>Share</p></div>
+                                <div class="iconcolx iconrowy color-magenta m2icon-brush button-action" onclick="jumpToPage(@Model.subPageIndex()); editSlide(@item.ID , '#slide-content-edit', slideLoaded);">
+                                    <p>                            
+                                        @Ajax.ActionLink( "Edit"
+                                        , "_Slide"
+                                        , "Shared"
+                                        , new { view = "Edit", id = item.ID }
+                                        , new AjaxOptions() { UpdateTargetId = "slide-title-edit" }) 
+                                    </p>
+                                </div>
+                            </div>
+                            }
+                        }
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="halfrowy-min filebrowser-nav">
+        @for (int i = 1; i <= Model.MaxPage(); i++)
+        {
+            <div class="halfcolx halfrowy color-yellow button-filebrowser-page">
+                @Ajax.ActionLink(i.ToString()
+                , "_FileBrowser"
+                , "Shared"
+                , new { view = Model.View, filetype = Model.FileType, page = i, itemPerPage = Model.ItemPerPage }
+                , new AjaxOptions() { UpdateTargetId = Model.GetLoaderId() })
+            </div>
+        }
+    </div>
+</div>

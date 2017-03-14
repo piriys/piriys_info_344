@@ -1,0 +1,108 @@
+﻿@model ViewSparkProject.Models.RegisterModel
+
+@*Redirect script for complete registration*@
+<script type="text/javascript">
+    function checkForValidRegistration(data) {
+        if (data.redirect && data.url) {
+            location.href = data.url;
+        }
+    }
+</script>
+
+@using (Ajax.BeginForm(new AjaxOptions()
+{
+    HttpMethod = "POST",
+    Url = Url.Action("_RegistrationForm", "Home"),
+    OnSuccess = "checkForValidRegistration(data)",
+    UpdateTargetId = "registrationForm",
+    InsertionMode = InsertionMode.Replace
+}))
+{         
+<div id="registrationForm" class="twocolx component container">
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Username)
+    </div>
+    <div class="fullcolx editor-field">
+        @Html.TextBox("Username")
+    </div> 
+    <div>
+        @Html.ValidationMessage("Username")
+         <span class="field-validation-error">@ViewBag.UserExists</span>
+    </div>
+ 
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Password)
+    </div>
+    <div class="fullcolx editor-field">
+        @Html.PasswordFor(model => model.Password)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ConfirmPassword)
+    </div>
+    <div class="fullcolxeditor-field">
+        @Html.PasswordFor(model => model.ConfirmPassword)
+    </div>
+    <div>
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+    </div>
+       
+    <div class="editor-label">
+        @Html.LabelFor(model => model.FirstName)
+    </div>
+    <div class="fullcolx editor-field">
+        @Html.TextBox("FirstName")
+    </div>
+    <div>
+        @Html.ValidationMessage("FirstName")
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.LastName)
+    </div>
+    <div class="fullcolx editor-field">
+        @Html.TextBox("LastName")
+    </div>
+    <div>
+        @Html.ValidationMessage("LastName")
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Gender)
+    </div>
+    <div class="fullcolx editor-field">
+        @Html.RadioButton("Gender", "Female", false) Female
+        @Html.RadioButton("Gender", "Male", false) Male   
+    </div>
+    <div>
+        @Html.ValidationMessage("Gender") 
+    </div>
+   
+    <div class="editor-label">
+        @Html.LabelFor(model => model.BirthDate)
+    </div>    
+    <div class="fullcolx editor-field">
+        @Html.EditorFor(model => model.BirthDate)
+    </div>       
+    <div>
+        @Html.ValidationMessage("BirthDate")
+    </div> 
+      
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Email)
+    </div>    
+    <div class="fullcolx editor-field">
+        @Html.TextBox("Email")
+    </div>
+    <div>
+        @Html.ValidationMessage("Email")
+    </div>
+
+    <p>
+        <input id="button-submit" type="submit" value="Sign Up" />
+    </p>  
+</div>
+}

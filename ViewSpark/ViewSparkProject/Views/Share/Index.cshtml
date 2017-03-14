@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ViewSparkProject.Presentation>
+
+@{
+    ViewBag.Title = "Share";
+}
+
+<div id="groupLoader" class="fullcolx fullrowy color-darkgray-a85 content loader group">
+    <h2 class="text-yellow">Share Presentations</h2>
+    <hr class="border-yellow" />
+    <p>
+        @Html.VSLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                CreationDate
+            </th>
+            <th>
+                CreatedByUser
+            </th>
+            <th>
+                ModificationDate
+            </th>
+            <th>
+                ModifiedByUser
+            </th>
+            <th>
+                PresentationDate
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByUser.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModificationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedByUser.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PresentationDate)
+            </td>
+            <td>
+                @Html.VSLink("Edit", "EditDetails", new { id = item.ID }) |
+                @Html.VSLink("Details", "Details", new { id = item.ID }) |
+                @Html.VSLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+    </table>
+</div>

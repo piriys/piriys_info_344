@@ -1,0 +1,29 @@
+﻿@table-color: #068;
+@table-alt-row-color: lighten(@table-color, 70%);
+
+
+table {
+	th {
+		background-color: #068;
+		color: #fff;
+		text-shadow: 1px 1px 0px #000;
+		padding: 0.2em 2em;
+		border-top: 1px solid transparent;
+	}
+	td {
+		text-align: center;
+		padding: 0.2em 1em;
+		border: 1px solid #eee;
+	}
+
+	th:not(:last-child) {
+		border-right: 1px solid #ccc;
+	}
+
+	tr:nth-child(even) {
+		background-color: @table-alt-row-color;
+	}
+
+	border: 1px solid #eee;
+	
+}

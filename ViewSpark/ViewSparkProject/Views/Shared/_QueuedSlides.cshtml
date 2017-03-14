@@ -1,0 +1,94 @@
+﻿@{
+    string slidename = "Slide";
+}
+
+<div id="queuedSlides" class="fullcolx fullrowy component">
+   	<h1 class="text-magenta">Queued Slides</h1>
+	<hr class="border-magenta"/> 
+    @if(Model != null)
+    {
+        <div id="toolbox-QueuedSlides" class="onecolx onerowy container">
+	        <div class="halfcolx button-tool">
+		        <div class="fullcolx halfrowy color-yellow m2icon-refresh" onclick="refreshQueuedSlides(@Model.ID, '@Model.View')"></div>
+		        <p class="text-yellow">Refresh</p>
+	        </div>
+            @if (Model.View == "Edit")
+            {
+	        <div class="halfcolx lastx button-tool">
+		        <div class="fullcolx halfrowy color-yellow m2icon-newfile" onclick="loadCreateSlideDialog(@Model.ID);"></div>
+		        <p class="text-yellow">New Slide</p>
+	        </div>
+            }
+            else if (Model.View == "Present")
+            {
+	        <div class="halfcolx lastx button-tool">
+		        <a href=@Url.Action("Index", "Edit", new { id = Model.ID, type = "presentation" })><div class="fullcolx halfrowy color-yellow m2icon-brush"></div></a>
+		        <p class="text-yellow">Edit</p>
+	        </div>
+            }
+        </div>
+
+        if (Model.ItemCount > 0)
+        {
+        <div class="@Model.GetColumnClass() container">
+            <ul class="fullcolx">
+                @foreach (var item in ViewBag.QueuedSlides)
+                {
+                    <li class="onecolx onerowy color-yellow button-queued-slide" onclick="loadIntoSlideOnlyView('Present', @item.Slide.ID); editSlide(@item.Slide.ID , '#slide-content-edit', slideLoaded); jumpToPage(@Model.GetJumpToPageIndex());">
+                        <div class="fullcolx fullrowy">
+                            @{slidename = item.Slide.Title;}
+
+                            @if (Model.View == "Present")
+                            {  
+                                @Ajax.ActionLink(slidename
+                                , "_Slide"
+                                , "Shared"
+                                , new { view = "Present", id = item.Slide.ID }
+                                , new AjaxOptions() { UpdateTargetId = "slide-Present_Loader" })   
+                            }
+                            else if (Model.View == "Edit")
+                            {  
+                                @Ajax.ActionLink(slidename
+                                , "_Slide"
+                                , "Shared"
+                                , new { view = "Edit", id = item.Slide.ID }
+                                , new AjaxOptions() { UpdateTargetId = "slide-title-edit" })   
+                            }
+                        </div>
+                    </li>
+                }
+            </ul>  
+
+            <div class="fullcolx">
+                <div class="halfrowy-min filebrowser-nav">
+                    @for (int i = 1; i <= Model.MaxPage(); i++)
+                    {
+                        <div class="halfcolx halfrowy color-yellow button-filebrowser-page">
+                            @Ajax.ActionLink(i.ToString()
+                            , "_QueuedSlides"
+                            , "Shared"
+                            , new { id = Model.ID, page = i, maxColumn = 3, maxRow = 3, view = Model.View }
+                            , new AjaxOptions() { UpdateTargetId = "queuedSlides_Loader" })
+                        </div>
+                    }
+                </div> 
+            </div>   
+        </div>  
+        }
+        else
+        {
+            if (Model.View == "Present")
+            {
+                <p>This presentation contains no slide, please click 'Edit' to go to Edit Home page and add or create slides to your presentation.</p>
+            }
+            else if (Model.View == "Edit")
+            {
+                <p>This presentation contains no slide, please click 'New Slide' to create slides to your presentation.</p>   
+            }
+        }
+}
+else
+{
+        <p>Presentation not found, please select another presentation or create a new one.</p>   
+}
+</div>

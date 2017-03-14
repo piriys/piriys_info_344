@@ -1,0 +1,51 @@
+﻿@model ViewSparkProject.Slide
+
+@{
+    Layout = "~/Views/Shared/_FullScreen.cshtml";
+    ViewBag.Title = "Details";
+}
+
+<h2>Slide Details</h2>
+
+<fieldset>
+    <legend>Slide</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Content</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+
+    <div class="display-label">CreationDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreationDate)
+    </div>
+
+    <div class="display-label">CreatedByUser</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedByUser.Username)
+    </div>
+
+    <div class="display-label">ModificationDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ModificationDate)
+    </div>
+
+    <div class="display-label">ModifiedByUser</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ModifiedByUser.Username)
+    </div>
+
+    <div class="display-label">PresentationDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PresentationDate)
+    </div>
+</fieldset>
+<p>
+    @Html.VSLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.VSLink("Back to List", "Index")
+</p>

@@ -1,0 +1,63 @@
+﻿@model ViewSparkProject.Poll
+
+@{
+    ViewBag.Title = "Delete Poll Page";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Poll</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Descr</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descr)
+    </div>
+
+    <div class="display-label">Choice1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice1)
+    </div>
+
+    <div class="display-label">Choice2</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice2)
+    </div>
+
+    <div class="display-label">Choice3</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice3)
+    </div>
+
+    <div class="display-label">Choice4</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice4)
+    </div>
+
+    <div class="display-label">Choice5</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choice5)
+    </div>
+
+    <div class="display-label">CreatedBy</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedBy)
+    </div>
+
+    <div class="display-label">CreationDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreationDate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

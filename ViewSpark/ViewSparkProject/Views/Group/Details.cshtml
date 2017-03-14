@@ -1,0 +1,35 @@
+﻿@model ViewSparkProject.Group
+
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+<div class="fullcolx fullrowy color-darkgray-a85 content loader group">
+    <h2 class="text-yellow">@Model.Name</h2>
+    <hr class="border-yellow" />
+
+    <fieldset>
+        <div class="display-label">Description:</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+
+        <div class="display-label">Created On:</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CreationDate)
+        </div>
+
+        <div class="display-label">Founded By:</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CreatedByUser.Username)
+        </div>
+        <div class="display-label">Members of @Model.Name:</div>
+        <div class="editor-field">
+            @Html.ListBox("Members")
+        </div>
+    </fieldset>
+    <div class="group-action-link text-yellow">
+        @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

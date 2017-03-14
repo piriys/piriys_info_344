@@ -1,0 +1,95 @@
+﻿<script type="text/javascript">
+    function refreshSlide(viewName, slideID) {
+        if (viewName == "Present") {
+            $.ajax({
+                url: "/Shared/_Slide",
+                data: { view: viewName, id: slideID },
+                success: function (data) {
+                    $('#slide-Present_Loader').html(data);
+                }
+            });
+            $.ajax({
+                url: "/Shared/_Slide",
+                data: { view: viewName, id: slideID },
+                success: function (data) {
+                    $('#slide-Expanded_Loader').html(data);
+                }
+            });
+        }
+        else if (viewName == "Edit") {
+            $.ajax({
+                url: "/Shared/_Slide",
+                data: { view: viewName, id: slideID },
+                success: function (data) {
+                    $('#slide-content-edit').html(data);
+                }
+            });
+        }
+        else if (viewName == "View") {
+            $.ajax({
+                url: "/Shared/_Slide",
+                data: { view: viewName, id: slideID },
+                success: function (data) {
+                    $('#slide-View_Loader').html(data);
+                }
+            });
+            $.ajax({
+                url: "/Shared/_Slide",
+                data: { view: viewName, id: slideID },
+                success: function (data) {
+                    $('#slide-Expanded_Loader').html(data);
+                }
+            });
+        }
+        console.log('slide refreshed');
+    }
+</script>
+
+
+@try
+{
+    if (Model.View == "Present" || Model.View == "View")
+    {
+        <div class="fullcolx fullrowy color-white slide content">
+                <div class="slide-title fullcolx">
+                    <h1 class="text-magenta">@Model.Slide.Title</h1>
+                    <hr class="border-magenta"/> 
+                </div>
+                <div class="slide-content fullcolx">@Model.Slide.HtmlContentHtmlString</div>
+
+                <div class="content-bottom-nav-left">
+ 	                <div class="halfcolx button-content-bottom " onclick="refreshSlide('@Model.View', @Model.Slide.ID);">
+                        <p class="text-magenta">Refresh</p>
+		                <div class="fullcolx halfrowy lasty color-magenta m2icon-refresh"></div>
+	                </div>  
+                </div>
+        </div>
+    }
+    else if (Model.View == "Edit")
+    {
+        <span>@Model.Slide.Title</span>
+    }
+}
+catch
+{
+    if (Model != null)
+    {
+        if (Model.View == "Present" || Model.View == "View")
+        {
+        <div class="fullcolx fullrowy color-white slide content">
+                <div class="slide-title fullcolx">
+   	                    <h1 class="text-magenta">Slide Preview</h1>
+	                    <hr class="border-magenta"/>
+                </div>
+
+                <div class="slide-content fullcolx"><p>Invalid ID. Please select another slide or create a new one in the Edit Home page.</p></div>
+        </div>
+        }
+    }
+    else
+    {
+        <span>Slide Not Found</span>
+    }
+}
+
+

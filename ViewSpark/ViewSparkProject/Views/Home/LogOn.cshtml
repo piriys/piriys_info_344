@@ -1,0 +1,12 @@
+﻿@model ViewSparkProject.Models.LogOnModel
+
+@{
+    ViewBag.Title = "LogOn";
+}
+
+<div id="logOnForm_Loader" class="fourcolx threerowy lasty color-darkgray-a85 content container loader">
+	<h1 class="text-magenta">Welcome Back!</h1>
+	<hr class="border-magenta"/>
+
+    @Html.Action("_LogOnForm")
+</div>

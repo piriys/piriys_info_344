@@ -1,0 +1,50 @@
+﻿@{
+    string slidename = "Slide";
+}
+
+<div id="queuedSlides" class="fullcolx fullrowy component">
+    <h1 class="text-magenta">Queued Slides of [@ViewBag.PresentationTitle]</h1>
+    <hr class="border-magenta"/> 
+    @if (Model.ItemCount != 0)
+    {
+        <div class="fullcolx">
+            <div class="sevencolx container">
+                <ul class="fullcolx">
+                @foreach (var item in ViewBag.QueuedSlides)
+                {
+                    <li class="onecolx onerowy color-yellow button-queued-slide" onclick="loadIntoSlideOnlyView('Present', @item.Slide.ID)";>
+                        <div class="fullcolx fullrowy">
+                            @{slidename = item.Slide.Title;}
+                 
+                            @Ajax.ActionLink(slidename
+                            , "_Slide"
+                            , "Shared"
+                            , new { view = "Present", id = item.Slide.ID }
+                            , new AjaxOptions() { UpdateTargetId = "slide-Present_Loader" })   
+                        </div>
+                    </li>
+                }
+                </ul>  
+            
+                <div class="fullcolx">
+                    <div class="halfrowy-min filebrowser-nav">
+                        @for (int i = 1; i <= Model.MaxPage(); i++)
+                        {
+                            <div class="halfcolx halfrowy color-yellow button-filebrowser-page">
+                                @Ajax.ActionLink(i.ToString()
+                                , "_QueuedSlides"
+                                , "Present"
+                                , new { page = i }
+                                , new AjaxOptions() { UpdateTargetId = "queuedSlides_Loader" })
+                            </div>
+                        }
+                    </div> 
+                </div>
+            </div>
+        </div>             
+    }
+    else
+    {
+        <p>This presentation contains no slide, please go to Create/Edit page to add slides into your presentation.</p>
+    }
+</div>
