@@ -1,0 +1,305 @@
+.halfcolx, .onecolx, .twocolx, .threecolx, .fourcolx, .fivecolx, .sixcolx, .sevencolx, .eightcolx, .ninecolx, .elevencolx, .fullcolx  {
+	margin-right: 10px;
+	position: relative;
+	float: left;
+	
+	-webkit-transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	-ms-transition: all 0.5s ease-in;	
+	transition: all 0.5s ease-in;	
+}
+	.halfcolx {
+		width: 45px;
+	}
+	
+	.onecolx {
+		width: 100px;
+	}
+	
+	.twocolx {
+		width: 210px;
+	}
+		.twocolx.content {
+			width: 190px;
+		}
+	
+	.threecolx {
+		width: 320px;
+	}
+		.threecolx.content {
+		width: 300px;
+	}
+	
+	.fourcolx {
+		width: 430px;
+	}
+		.fourcolx.content {
+			width: 410px;
+		}
+		
+	.fivecolx {
+		width: 540px;
+	}	
+	
+	.sixcolx {
+		width: 650px;
+	}
+		.sixcolx.content {
+			width: 630px;
+		}
+		
+	.sevencolx {
+		width: 760px;
+	}
+		.sevencolx.content {
+			width: 740px;
+		}	
+	.eightcolx {
+		width: 870px;
+	}		
+		.eightcolx.content {
+			width: 850px;
+		}
+	.ninecolx {
+		width: 980px;
+	}
+	
+	.tencolx {
+		width: 1090px;
+	}
+	
+	.elevencolx {
+		width: 1200px;
+	}
+		.elevencolx.content {
+			width: 1180px;
+		}	
+		
+	.twelvecolx {
+		width: 1310px;
+	}
+		.twelvecolx.content {
+			width: 1290px;
+		}	
+	
+	.fullcolx {
+		width: 100%;
+		margin-right: 0;		
+	}
+
+.halfrowy, .onerowy, .tworowy, .threerowy, .fourrowy, .fiverowy,  .sixrowy, .sevenrowy, .eightrowy, .ninerowy, .tenrowy, .fullrowy {
+	margin-bottom: 10px;
+	position: relative; 
+	
+	-webkit-transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	-ms-transition: all 0.5s ease-in;	
+	transition: all 0.5s ease-in;	
+}
+	.halfrowy {
+		height: 45px;
+	}
+	.onerowy {
+		height: 100px;
+	}
+	
+	.tworowy {
+		height: 210px;
+	}
+
+	.threerowy {
+		height: 320px;
+	}
+		.threerowy.content {
+			height: 300px;
+		}
+	
+	.fourrowy {
+		height: 430px;
+	}
+		
+	.fiverowy {
+		height: 540px;
+	}
+	
+	.sixrowy {
+		height: 650px;
+	}
+		.sixrowy.content {
+			height: 630px;
+		}	
+		
+	.sevenrowy {
+		height: 760px;
+	}
+	
+	.eightrowy {
+		height: 870px;
+	}
+		
+	.ninerowy {
+		height: 980px;
+	}
+		.ninerowy.content{
+			height: 960px;
+		}	
+		
+	.tenrowy {
+		height: 1090px;
+	}
+	
+	.fullrowy {
+		height: 100%;
+		margin-bottom: 0;
+	}
+
+		.halfrowy-min {
+			min-height: 45px;
+		}
+		.onerowy-min {
+			min-height: 100px;
+		}
+
+		.tworowy-min {
+			min-height: 210px;
+		}
+		
+		.threerowy-min {
+			min-height: 320px;
+		}
+		
+		.fourrowy-min {
+			min-height: 430px;
+		}
+
+		.fiverowy-min {
+			min-height: 540px;
+		}
+		
+		.sixrowy-min {
+			min-height: 650px;
+		}
+		
+		.sevenrowy-min {
+			min-height: 760px;
+		}
+		
+		.eightrowy-min {
+			min-height: 870px;
+		}
+			
+		.ninerowy-min {
+			min-height: 980px;
+		}
+		
+		.tenrowy-min {
+			min-height: 1090px;
+		}	
+	
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}	
+
+.content {
+	padding: 10px;
+}
+
+.lastx {
+	margin-right: 0;
+}
+
+.lasty {
+	margin-bottom: 0;
+}
+
+.page {
+	-webkit-transition: all 1.5s ease-out;
+	-moz-transition: all 1.5s ease-out;
+	-o-transition: all 1.5s ease-out;
+	-ms-transition: all 1.5s ease-out;	
+	transition: all 1.5s ease-out;	
+}
+
+.wrapper {
+
+}
+
+/*Custom*/
+body {
+	background-image: url("../img/logo-background.png");
+	background-position: 130% 140%;
+	background-repeat: no-repeat;
+	background-size: 40%;
+}
+
+#logo {
+	margin-left: 20px;
+}
+
+#login {
+	float: right;
+	margin-right: 20px;
+	text-align: right;
+}
+
+	#login #usericon {
+		float: right;
+		margin: 0 0 0 10px;
+	}
+
+header {
+	padding: 20px 0;
+}
+	header p {
+		font-size: 1.2em;
+	}
+	
+	header a {
+		font-size: 1.2em;
+		font-family: "Segoe Light", "Segoe UI", sans-serif;
+	}
+
+.item-slide {
+	
+}
+	.item-slide h2 {
+		font-size: 1.4em;
+	}
+	
+#tools {
+	
+}
+
+#slide-nav {
+
+}
+
+#layout-nav {
+
+}	
+	.button-tool p {
+		text-align: center;
+	}
+	.button-layout p, .button-slide-nav p  {
+		font-size: 1.2em;
+		text-align: center;
+	}
+	
+.content-overlay {
+	position: absolute;
+	right: 0;
+	bottom: 15px;
+	opacity: 0.2;
+}
+	.content-overlay .overlay-data {
+		font-size: 6em;
+		letter-spacing: 0.1em;
+	}
+	
+	.content-overlay .overlay-title {
+		font-size: 3em;
+	}

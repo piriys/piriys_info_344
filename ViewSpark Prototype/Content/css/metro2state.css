@@ -1,0 +1,10 @@
+.state-inactive {
+	height: 0;
+	opacity: 0.0;
+	visibility: hidden;
+	overflow: hidden;
+}
+
+.state-active{
+	opacity: 1.0;
+}
